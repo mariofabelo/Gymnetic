@@ -1,0 +1,29 @@
+# Framework7 + Capacitor + React Development Rules
+
+# 1. Edit your app in `src/` - all development happens here
+allow: src/**
+allow: public/**
+allow: package.json
+allow: capacitor.config.json
+allow: framework7.json
+allow: postcss.config.js
+allow: vite.config.js
+
+# Do not edit generated native files directly
+deny: ios/**
+deny: android/**
+
+# Exception: allow editing native code only for custom plugins or platform-specific fixes
+allow: ios/App/App/AppDelegate.swift
+allow: android/app/src/main/java/io/framework7/myapp/MainActivity.java
+
+# Do not edit files in www/ (output directory)
+deny: www/**
+
+# Development Workflow:
+# 1. Edit your app in `src/`
+# 2. Then run: npm run build
+# 3. (Only if you added plugins or modified native stuff) npx cap sync ios
+# 4. Open and run in Xcode: npx cap run ios
+
+note: Development workflow - After editing files in src/, run: 1) npm run build, 2) npx cap copy ios, 3) npx cap sync ios (only if plugins changed), 4) npx cap run ios

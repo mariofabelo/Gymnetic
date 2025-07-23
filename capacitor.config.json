@@ -1,0 +1,21 @@
+{
+  "appId": "io.framework7.myapp",
+  "appName": "My App",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    },
+    "StatusBar": {
+      "style": "DARK",
+      "backgroundColor": "#ffffff",
+      "overlaysWebView": true
+    }
+  },
+  "ios": {
+    "contentInset": "never"
+  },
+  "cordova": {}
+}

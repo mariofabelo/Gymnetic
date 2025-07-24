@@ -103,7 +103,7 @@ const CreateTemplatePage = () => {
       <Navbar title="Create Template" backLink="Back" />
       <Block className="activity-content">
         {/* Template Name Section */}
-        <div className="glass-card template-form-card">
+        <div className="template-name-section">
           <List noHairlines>
             <ListInput
               type="text"

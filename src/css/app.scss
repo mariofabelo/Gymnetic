@@ -814,6 +814,7 @@ body {
 
   .exercise-library-modal {
     max-height: 85vh;
+    width: calc(100% - 20px);
 
     .modal-header {
       padding: 16px;
@@ -821,6 +822,17 @@ body {
 
     .modal-content {
       padding: 0 16px 16px 16px;
+    }
+  }
+
+  @keyframes modalSlideUp {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.8) translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1) translateY(0);
     }
   }
 }

@@ -1,11 +1,64 @@
 import React, { useState } from 'react';
-import { Page, Navbar, Block, Button, List, ListInput, ListItem, Link } from 'framework7-react';
+import { Page, Navbar, Block, Button, List, ListInput, ListItem, Link, Sheet } from 'framework7-react';
 
 const CreateTemplatePage = () => {
   const [templateName, setTemplateName] = useState('');
   const [exercises, setExercises] = useState([]);
-  const [showAddExercise, setShowAddExercise] = useState(false);
-  const [newExerciseName, setNewExerciseName] = useState('');
+  const [showExerciseLibrary, setShowExerciseLibrary] = useState(false);
+
+  // Exercise library with categories
+  const exerciseLibrary = [
+    {
+      category: 'Chest',
+      exercises: [
+        { name: 'Bench Press', muscle: 'Chest' },
+        { name: 'Push-ups', muscle: 'Chest' },
+        { name: 'Incline Bench Press', muscle: 'Chest' },
+        { name: 'Dumbbell Flyes', muscle: 'Chest' },
+        { name: 'Dips', muscle: 'Chest' }
+      ]
+    },
+    {
+      category: 'Back',
+      exercises: [
+        { name: 'Pull-ups', muscle: 'Back' },
+        { name: 'Deadlifts', muscle: 'Back' },
+        { name: 'Bent-over Rows', muscle: 'Back' },
+        { name: 'Lat Pulldowns', muscle: 'Back' },
+        { name: 'T-Bar Rows', muscle: 'Back' }
+      ]
+    },
+    {
+      category: 'Legs',
+      exercises: [
+        { name: 'Squats', muscle: 'Legs' },
+        { name: 'Lunges', muscle: 'Legs' },
+        { name: 'Leg Press', muscle: 'Legs' },
+        { name: 'Leg Curls', muscle: 'Legs' },
+        { name: 'Calf Raises', muscle: 'Legs' }
+      ]
+    },
+    {
+      category: 'Shoulders',
+      exercises: [
+        { name: 'Shoulder Press', muscle: 'Shoulders' },
+        { name: 'Lateral Raises', muscle: 'Shoulders' },
+        { name: 'Front Raises', muscle: 'Shoulders' },
+        { name: 'Rear Delt Flyes', muscle: 'Shoulders' },
+        { name: 'Upright Rows', muscle: 'Shoulders' }
+      ]
+    },
+    {
+      category: 'Arms',
+      exercises: [
+        { name: 'Bicep Curls', muscle: 'Arms' },
+        { name: 'Tricep Extensions', muscle: 'Arms' },
+        { name: 'Hammer Curls', muscle: 'Arms' },
+        { name: 'Close-grip Bench Press', muscle: 'Arms' },
+        { name: 'Preacher Curls', muscle: 'Arms' }
+      ]
+    }
+  ];
 
   const handleSaveTemplate = () => {
     if (!templateName.trim()) {

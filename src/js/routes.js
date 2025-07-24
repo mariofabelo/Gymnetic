@@ -1,4 +1,3 @@
-
 import HomePage from '../pages/home.jsx';
 import AboutPage from '../pages/about.jsx';
 import FormPage from '../pages/form.jsx';
@@ -9,6 +8,7 @@ import ConnectPage from '../pages/connect.jsx';
 import MorePage from '../pages/more.jsx';
 import ProfilePage from '../pages/profile.jsx';
 import MeasurementsPage from '../pages/measurements.jsx';
+import CreateTemplatePage from '../pages/create-template.jsx';
 
 import DynamicRoutePage from '../pages/dynamic-route.jsx';
 import RequestAndLoad from '../pages/request-and-load.jsx';
@@ -113,4 +113,3 @@ var routes = [
 ];
 
 export default routes;
-

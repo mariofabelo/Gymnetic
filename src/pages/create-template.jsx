@@ -82,21 +82,16 @@ const CreateTemplatePage = () => {
     // f7router.back();
   };
 
-  const handleAddExercise = () => {
-    if (!newExerciseName.trim()) {
-      return;
-    }
-
+  const handleAddExerciseFromLibrary = (exerciseName) => {
     const newExercise = {
       id: Date.now(),
-      name: newExerciseName,
+      name: exerciseName,
       sets: [],
       notes: ''
     };
 
     setExercises([...exercises, newExercise]);
-    setNewExerciseName('');
-    setShowAddExercise(false);
+    setShowExerciseLibrary(false);
   };
 
   const handleRemoveExercise = (exerciseId) => {

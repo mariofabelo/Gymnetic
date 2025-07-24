@@ -8,8 +8,13 @@ const StartPage = () => {
   };
 
   const handleTemplateSelect = (templateName) => {
-    // TODO: Navigate to workout session with template or implement template logic
-    console.log(`Starting ${templateName} template...`);
+    if (templateName === 'Create New') {
+      // Navigate to create template page
+      f7.views.main.router.navigate('/create-template/');
+    } else {
+      // TODO: Navigate to workout session with template or implement template logic
+      console.log(`Starting ${templateName} template...`);
+    }
   };
 
   return (

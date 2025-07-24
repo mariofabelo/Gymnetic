@@ -454,6 +454,202 @@ body {
   }
 }
 
+/* Create Template Page Styles */
+.template-form-card {
+  margin-bottom: 20px;
+
+  .form-section {
+    h3 {
+      margin: 0 0 16px 0;
+      font-size: 18px;
+      font-weight: 600;
+      color: #000;
+    }
+  }
+}
+
+.exercises-section-card {
+  margin-bottom: 20px;
+
+  .exercises-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+
+    h3 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .add-exercise-btn {
+      background: #007AFF;
+      color: white;
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        background: #0051D5;
+      }
+    }
+  }
+
+  .add-exercise-form {
+    background: rgba(247, 247, 247, 0.8);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+
+    .form-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+
+      .save-exercise-btn {
+        background: #34C759;
+        color: white;
+        border-radius: 8px;
+        padding: 8px 16px;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+          background: #30A14E;
+        }
+      }
+
+      .cancel-btn {
+        background: #8E8E93;
+        color: white;
+        border-radius: 8px;
+        padding: 8px 16px;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+          background: #636366;
+        }
+      }
+    }
+  }
+
+  .exercises-list {
+    .empty-exercises {
+      text-align: center;
+      padding: 40px 20px;
+      color: #8E8E93;
+
+      .empty-icon {
+        font-size: 48px;
+        margin-bottom: 16px;
+      }
+
+      p {
+        margin: 8px 0;
+        font-size: 16px;
+      }
+
+      .empty-subtitle {
+        font-size: 14px;
+        color: #AEAEB2;
+      }
+    }
+
+    .exercise-item {
+      background: rgba(247, 247, 247, 0.6);
+      border-radius: 12px;
+      margin-bottom: 8px;
+
+      .exercise-content {
+        display: flex;
+        align-items: center;
+        padding: 16px;
+
+        .exercise-number {
+          background: #007AFF;
+          color: white;
+          width: 32px;
+          height: 32px;
+          border-radius: 16px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 600;
+          font-size: 14px;
+          margin-right: 16px;
+        }
+
+        .exercise-details {
+          flex: 1;
+
+          h4 {
+            margin: 0 0 4px 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: #000;
+          }
+
+          p {
+            margin: 0;
+            font-size: 14px;
+            color: #8E8E93;
+          }
+        }
+
+        .remove-exercise-btn {
+          background: #FF3B30;
+          color: white;
+          width: 32px;
+          height: 32px;
+          border-radius: 16px;
+          border: none;
+          font-size: 18px;
+          font-weight: bold;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:hover {
+            background: #D70015;
+          }
+        }
+      }
+    }
+  }
+}
+
+.template-actions {
+  margin: 20px auto;
+  max-width: 85%;
+
+  .save-template-btn {
+    width: 100%;
+    background: #007AFF;
+    color: white;
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+
+    &:hover:not(:disabled) {
+      background: #0051D5;
+    }
+
+    &:disabled {
+      background: #AEAEB2;
+      cursor: not-allowed;
+    }
+  }
+}
+
 @keyframes subtleShimmer {
   0% { left: -100%; }
   50% { left: 100%; }

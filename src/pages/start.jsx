@@ -1,5 +1,5 @@
 import React from 'react';
-import { Page, Navbar, Block, f7 } from 'framework7-react';
+import { Page, Navbar, Block, Link } from 'framework7-react';
 
 const StartPage = () => {
   const handleStartEmptyWorkout = () => {

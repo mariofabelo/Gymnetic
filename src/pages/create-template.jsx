@@ -168,49 +168,47 @@ const CreateTemplatePage = () => {
           </Button>
         </div>
 
-        {/* Exercise Library Popup */}
-        <Popup
-          className="exercise-library-popup"
-          opened={showExerciseLibrary}
-          onPopupClosed={() => setShowExerciseLibrary(false)}
-          backdrop
-        >
-          <Page>
-            <Navbar title="Exercise Library">
-              <Link
-                slot="right"
-                popupClose
-                onClick={() => setShowExerciseLibrary(false)}
-              >
-                Done
-              </Link>
-            </Navbar>
-            <Block>
-              <div className="exercise-categories">
-                {exerciseLibrary.map((category, categoryIndex) => (
-                  <div key={categoryIndex} className="exercise-category">
-                    <h3 className="category-title">{category.category}</h3>
-                    <div className="category-exercises">
-                      {category.exercises.map((exercise, exerciseIndex) => (
-                        <div
-                          key={exerciseIndex}
-                          className="library-exercise-item"
-                          onClick={() => handleAddExerciseFromLibrary(exercise.name)}
-                        >
-                          <div className="exercise-info">
-                            <h4>{exercise.name}</h4>
-                            <p>{exercise.muscle}</p>
-                          </div>
-                          <div className="add-icon">+</div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))}
+        {/* Exercise Library Modal */}
+        {showExerciseLibrary && (
+          <div className="exercise-library-modal-backdrop" onClick={() => setShowExerciseLibrary(false)}>
+            <div className="exercise-library-modal" onClick={(e) => e.stopPropagation()}>
+              <div className="modal-header">
+                <h2>Exercise Library</h2>
+                <Button
+                  className="close-modal-btn"
+                  onClick={() => setShowExerciseLibrary(false)}
+                >
+                  ×
+                </Button>
               </div>
-            </Block>
-          </Page>
-        </Popup>
+
+              <div className="modal-content">
+                <div className="exercise-categories">
+                  {exerciseLibrary.map((category, categoryIndex) => (
+                    <div key={categoryIndex} className="exercise-category">
+                      <h3 className="category-title">{category.category}</h3>
+                      <div className="category-exercises">
+                        {category.exercises.map((exercise, exerciseIndex) => (
+                          <div
+                            key={exerciseIndex}
+                            className="library-exercise-item"
+                            onClick={() => handleAddExerciseFromLibrary(exercise.name)}
+                          >
+                            <div className="exercise-info">
+                              <h4>{exercise.name}</h4>
+                              <p>{exercise.muscle}</p>
+                            </div>
+                            <div className="add-icon">+</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </Block>
     </Page>
   );

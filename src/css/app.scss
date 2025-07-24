@@ -455,17 +455,11 @@ body {
 }
 
 /* Create Template Page Styles */
-.template-form-card {
+.template-name-section {
   margin-bottom: 20px;
-
-  .form-section {
-    h3 {
-      margin: 0 0 16px 0;
-      font-size: 18px;
-      font-weight: 600;
-      color: #000;
-    }
-  }
+  max-width: 85%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .exercises-section-card {

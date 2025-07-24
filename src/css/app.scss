@@ -644,6 +644,27 @@ body {
   }
 }
 
+/* Exercise Library Modal Animations */
+@keyframes modalBackdropFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.7) translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) translateY(0);
+  }
+}
+
 /* Exercise Library Modal Styles */
 .exercise-library-modal-backdrop {
   position: fixed;
@@ -658,6 +679,7 @@ body {
   z-index: 13000;
   padding: 20px;
   box-sizing: border-box;
+  animation: modalBackdropFadeIn 0.3s ease-out;
 }
 
 .exercise-library-modal {

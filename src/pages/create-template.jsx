@@ -119,45 +119,13 @@ const CreateTemplatePage = () => {
         <div className="glass-card exercises-section-card">
           <div className="exercises-header">
             <h3>Exercises</h3>
-            <Button 
+            <Button
               className="add-exercise-btn"
-              onClick={() => setShowAddExercise(!showAddExercise)}
+              onClick={() => setShowExerciseLibrary(true)}
             >
               + Add Exercise
             </Button>
           </div>
-
-          {/* Add Exercise Form */}
-          {showAddExercise && (
-            <div className="add-exercise-form">
-              <List noHairlines>
-                <ListInput
-                  type="text"
-                  placeholder="Exercise name"
-                  value={newExerciseName}
-                  onInput={(e) => setNewExerciseName(e.target.value)}
-                  clearButton
-                />
-              </List>
-              <div className="form-actions">
-                <Button 
-                  className="save-exercise-btn"
-                  onClick={handleAddExercise}
-                >
-                  Add
-                </Button>
-                <Button 
-                  className="cancel-btn"
-                  onClick={() => {
-                    setShowAddExercise(false);
-                    setNewExerciseName('');
-                  }}
-                >
-                  Cancel
-                </Button>
-              </div>
-            </div>
-          )}
 
           {/* Exercises List */}
           <div className="exercises-list">

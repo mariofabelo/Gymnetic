@@ -85,13 +85,13 @@ const StartPage = () => {
               </div>
             </div>
 
-            <div className="template-card create-template" onClick={() => handleTemplateSelect('Create New')}>
+            <Link href="/create-template/" className="template-card create-template">
               <div className="template-content">
                 <div className="template-icon">➕</div>
                 <h4>Create Template</h4>
                 <p>Build your own custom workout template</p>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </Block>

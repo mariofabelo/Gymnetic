@@ -644,50 +644,16 @@ body {
   }
 }
 
-/* Exercise Library Sheet Styles */
-.exercise-library-sheet {
-  .sheet-modal-inner {
-    padding: 0;
-    max-height: 80vh;
-    overflow-y: auto;
+/* Exercise Library Popup Styles */
+.exercise-library-popup {
+  .page {
+    background: #ffffff !important;
   }
 
-  .sheet-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    background: white;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-
-    h2 {
-      margin: 0;
-      font-size: 20px;
-      font-weight: 600;
-      color: #000;
-    }
-
-    .close-sheet-btn {
-      background: #8E8E93;
-      color: white;
-      width: 32px;
-      height: 32px;
-      border-radius: 16px;
-      border: none;
-      font-size: 18px;
-      font-weight: bold;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      &:hover {
-        background: #636366;
-      }
-    }
+  .navbar {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
   }
 
   .exercise-categories {

@@ -56,6 +56,10 @@ var routes = [
     component: MeasurementsPage,
   },
   {
+    path: '/create-template/',
+    component: CreateTemplatePage,
+  },
+  {
     path: '/dynamic-route/blog/:blogId/post/:postId/',
     component: DynamicRoutePage,
   },

@@ -233,9 +233,9 @@ body {
   padding: 0;
   
   .navbar {
-    background: rgba(255, 255, 255, 0.95) !important;
-    --f7-navbar-bg-color: rgba(255, 255, 255, 0.95) !important;
-    backdrop-filter: blur(20px) !important;
+    background: transparent !important;
+    --f7-navbar-bg-color: transparent !important;
+    backdrop-filter: none !important;
     border-bottom: none !important;
     /* Ensure navbar accounts for status bar */
     padding-top: env(safe-area-inset-top);
@@ -257,9 +257,9 @@ body {
 
 /* Global navbar override for all Framework7 navbars */
 .navbar {
-  background: rgba(255, 255, 255, 0.95) !important;
-  --f7-navbar-bg-color: rgba(255, 255, 255, 0.95) !important;
-  backdrop-filter: blur(20px) !important;
+  background: transparent !important;
+  --f7-navbar-bg-color: transparent !important;
+  backdrop-filter: none !important;
   border-bottom: none !important;
   
   .title, .navbar-inner .title, .navbar-inner .center {
@@ -287,7 +287,7 @@ body {
 
 /* Override any backgrounds in Framework7 components */
 .navbar-bg, .navbar-inner, .navbar-inner::before, .navbar-inner::after {
-  background: rgba(255, 255, 255, 0.95) !important;
+  background: transparent !important;
 }
 
 /* Remove all navbar borders and hairlines - comprehensive approach */
@@ -392,14 +392,14 @@ body {
 
 /* Dashboard at top of screen with safe zones */
 .dashboard-top {
-  padding-top: calc(env(safe-area-inset-top) + 6px) !important;
+  padding-top: calc(env(safe-area-inset-top) - 2px) !important;
   padding-left: 16px;
   padding-right: 16px;
   padding-bottom: calc(var(--f7-toolbar-height) + env(safe-area-inset-bottom) + 20px) !important;
 }
 
 .dashboard-title {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   padding-left: 8px;
   padding-top: 0;
   

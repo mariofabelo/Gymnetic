@@ -31,7 +31,7 @@ const StartPage = () => {
           <div className="workout-option-content">
             <div className="workout-icon">💪</div>
             <h3>Start Empty Workout</h3>
-            <p>Begin a custom workout and add exercises as you go</p>
+            <p>Begin a workout and add exercises as you go</p>
           </div>
         </div>
 

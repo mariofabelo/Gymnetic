@@ -104,18 +104,15 @@ const CreateTemplatePage = () => {
       <Block className="activity-content">
         {/* Template Name Section */}
         <div className="glass-card template-form-card">
-          <div className="form-section">
-            <h3>Template Details</h3>
-            <List noHairlines>
-              <ListInput
-                type="text"
-                placeholder="Enter template name"
-                value={templateName}
-                onInput={(e) => setTemplateName(e.target.value)}
-                clearButton
-              />
-            </List>
-          </div>
+          <List noHairlines>
+            <ListInput
+              type="text"
+              placeholder="Enter template name"
+              value={templateName}
+              onInput={(e) => setTemplateName(e.target.value)}
+              clearButton
+            />
+          </List>
         </div>
 
         {/* Exercises Section */}

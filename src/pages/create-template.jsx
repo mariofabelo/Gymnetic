@@ -167,6 +167,50 @@ const CreateTemplatePage = () => {
             Save Template
           </Button>
         </div>
+
+        {/* Exercise Library Sheet */}
+        <Sheet
+          className="exercise-library-sheet"
+          opened={showExerciseLibrary}
+          onSheetClosed={() => setShowExerciseLibrary(false)}
+          swipeToClose
+          backdrop
+        >
+          <div className="sheet-modal-inner">
+            <div className="sheet-header">
+              <h2>Exercise Library</h2>
+              <Button
+                className="close-sheet-btn"
+                onClick={() => setShowExerciseLibrary(false)}
+              >
+                ×
+              </Button>
+            </div>
+
+            <div className="exercise-categories">
+              {exerciseLibrary.map((category, categoryIndex) => (
+                <div key={categoryIndex} className="exercise-category">
+                  <h3 className="category-title">{category.category}</h3>
+                  <div className="category-exercises">
+                    {category.exercises.map((exercise, exerciseIndex) => (
+                      <div
+                        key={exerciseIndex}
+                        className="library-exercise-item"
+                        onClick={() => handleAddExerciseFromLibrary(exercise.name)}
+                      >
+                        <div className="exercise-info">
+                          <h4>{exercise.name}</h4>
+                          <p>{exercise.muscle}</p>
+                        </div>
+                        <div className="add-icon">+</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Sheet>
       </Block>
     </Page>
   );

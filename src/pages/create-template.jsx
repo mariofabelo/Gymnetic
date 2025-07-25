@@ -96,7 +96,7 @@ const CreateTemplatePage = () => {
     store.dispatch('addWorkoutTemplate', template);
 
     // Navigate back to start page
-    window.f7router.back();
+    f7.views.current.router.back();
   };
 
   const handleAddExerciseFromLibrary = (exerciseName) => {

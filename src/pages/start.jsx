@@ -7,13 +7,19 @@ const StartPage = () => {
 
   useEffect(() => {
     // Get templates from store
-    const workoutTemplates = store.getters.workoutTemplates.value;
-    setTemplates(workoutTemplates);
+    const updateTemplates = () => {
+      const workoutTemplates = store.getters.workoutTemplates.value;
+      setTemplates(workoutTemplates);
+    };
 
-    // Listen for store updates
-    const unsubscribe = store.state.workoutTemplates;
+    // Initial load
+    updateTemplates();
+
+    // Listen for store updates by checking periodically
+    const interval = setInterval(updateTemplates, 100);
+
     return () => {
-      // Cleanup if needed
+      clearInterval(interval);
     };
   }, []);
 

@@ -18,7 +18,19 @@ const CreateTemplatePage = ({ editTemplate }) => {
       setEditingTemplateId(editTemplate.id);
       setTemplateName(editTemplate.name);
       setSelectedEmoji(editTemplate.emoji);
-      setExercises(editTemplate.exercises || []);
+      // Ensure all exercises have proper sets structure
+      const exercisesWithSets = (editTemplate.exercises || []).map(exercise => ({
+        ...exercise,
+        id: exercise.id || Date.now() + Math.random(),
+        sets: exercise.sets && exercise.sets.length > 0
+          ? exercise.sets.map(set => ({
+              id: set.id || Date.now() + Math.random(),
+              weight: set.weight || '',
+              reps: set.reps || ''
+            }))
+          : [{ id: Date.now() + Math.random(), weight: '', reps: '' }]
+      }));
+      setExercises(exercisesWithSets);
     }
   }, [editTemplate]);
 

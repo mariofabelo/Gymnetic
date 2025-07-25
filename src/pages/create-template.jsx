@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Page, Navbar, Block, Button, List, ListInput, ListItem, Link, Popup } from 'framework7-react';
+import { Page, Navbar, Block, Button, List, ListInput, ListItem, Link, Popup, f7 } from 'framework7-react';
 import store from '../js/store';
 
 const CreateTemplatePage = () => {

@@ -120,16 +120,28 @@ const CreateTemplatePage = () => {
       <Navbar title="Create Template" backLink="Back" />
       <Block className="activity-content">
         {/* Template Name Section */}
-        <div className="template-name-section">
-          <List noHairlines>
-            <ListInput
-              type="text"
-              placeholder="Enter template name"
-              value={templateName}
-              onInput={(e) => setTemplateName(e.target.value)}
-              clearButton
-            />
-          </List>
+        <div className="glass-card template-name-section">
+          <h3>Template Details</h3>
+          <div className="template-input-row">
+            <div
+              className="emoji-selector"
+              onClick={() => setShowEmojiPicker(true)}
+            >
+              <span className="selected-emoji">{selectedEmoji}</span>
+              <span className="emoji-label">Tap to change</span>
+            </div>
+            <div className="name-input-container">
+              <List noHairlines>
+                <ListInput
+                  type="text"
+                  placeholder="Enter template name"
+                  value={templateName}
+                  onInput={(e) => setTemplateName(e.target.value)}
+                  clearButton
+                />
+              </List>
+            </div>
+          </div>
         </div>
 
         {/* Exercises Section */}

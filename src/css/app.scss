@@ -1013,30 +1013,30 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px;
+    padding: 20px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     flex-shrink: 0;
 
     .template-header-info {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
 
       .template-emoji {
-        font-size: 48px;
+        font-size: 40px;
         filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
       }
 
       h2 {
-        margin: 0 0 4px 0;
-        font-size: 24px;
+        margin: 0 0 3px 0;
+        font-size: 20px;
         font-weight: 700;
         color: #000;
       }
 
       .template-meta {
         margin: 0;
-        font-size: 14px;
+        font-size: 13px;
         color: #666;
         font-weight: 500;
       }

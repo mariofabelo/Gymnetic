@@ -25,7 +25,7 @@ const StartPage = () => {
   const handleTemplateSelect = (templateName, templateId) => {
     if (templateName === 'Create New') {
       // Navigate to create template page
-      window.f7router.navigate('/create-template/');
+      f7.views.current.router.navigate('/create-template/');
     } else {
       // TODO: Navigate to workout session with template or implement template logic
       console.log(`Starting ${templateName} template...`);

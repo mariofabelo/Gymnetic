@@ -159,7 +159,7 @@ const CreateTemplatePage = ({ editTemplate }) => {
               <List noHairlines>
                 <ListInput
                   type="text"
-                  placeholder="Enter template name"
+                  placeholder="Enter name"
                   value={templateName}
                   onInput={(e) => setTemplateName(e.target.value)}
                   clearButton

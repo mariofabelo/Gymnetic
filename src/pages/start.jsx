@@ -1,16 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Page, Navbar, Block, Link } from 'framework7-react';
+import store from '../js/store';
 
 const StartPage = () => {
+  const [templates, setTemplates] = useState([]);
+
+  useEffect(() => {
+    // Get templates from store
+    const workoutTemplates = store.getters.workoutTemplates.value;
+    setTemplates(workoutTemplates);
+
+    // Listen for store updates
+    const unsubscribe = store.state.workoutTemplates;
+    return () => {
+      // Cleanup if needed
+    };
+  }, []);
+
   const handleStartEmptyWorkout = () => {
     // TODO: Navigate to workout session or implement empty workout logic
     console.log('Starting empty workout...');
   };
 
-  const handleTemplateSelect = (templateName) => {
+  const handleTemplateSelect = (templateName, templateId) => {
     if (templateName === 'Create New') {
       // Navigate to create template page
-      f7.views.main.router.navigate('/create-template/');
+      window.f7router.navigate('/create-template/');
     } else {
       // TODO: Navigate to workout session with template or implement template logic
       console.log(`Starting ${templateName} template...`);

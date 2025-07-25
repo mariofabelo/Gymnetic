@@ -38,7 +38,7 @@ const store = createStore({
       {
         id: '2',
         name: 'Legs',
-        emoji: '🦵',
+        emoji: '��',
         exercises: [
           { name: 'Squats', sets: [{ id: 7, weight: '225', reps: '8' }], notes: '' },
           { name: 'Deadlifts', sets: [{ id: 8, weight: '275', reps: '5' }], notes: '' },
@@ -56,14 +56,14 @@ const store = createStore({
         name: 'Full Body',
         emoji: '🏃',
         exercises: [
-          { name: 'Burpees', sets: [], notes: '' },
-          { name: 'Push-ups', sets: [], notes: '' },
-          { name: 'Squats', sets: [], notes: '' },
-          { name: 'Pull-ups', sets: [], notes: '' },
-          { name: 'Planks', sets: [], notes: '' },
-          { name: 'Mountain Climbers', sets: [], notes: '' },
-          { name: 'Jump Squats', sets: [], notes: '' },
-          { name: 'Dips', sets: [], notes: '' }
+          { name: 'Burpees', sets: [{ id: 14, weight: '', reps: '15' }], notes: '' },
+          { name: 'Push-ups', sets: [{ id: 15, weight: '', reps: '20' }], notes: '' },
+          { name: 'Squats', sets: [{ id: 16, weight: '', reps: '25' }], notes: '' },
+          { name: 'Pull-ups', sets: [{ id: 17, weight: '', reps: '8' }], notes: '' },
+          { name: 'Planks', sets: [{ id: 18, weight: '', reps: '60' }], notes: '' },
+          { name: 'Mountain Climbers', sets: [{ id: 19, weight: '', reps: '30' }], notes: '' },
+          { name: 'Jump Squats', sets: [{ id: 20, weight: '', reps: '20' }], notes: '' },
+          { name: 'Dips', sets: [{ id: 21, weight: '', reps: '12' }], notes: '' }
         ],
         duration: 35,
         createdAt: new Date('2024-01-03')

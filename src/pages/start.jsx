@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Page, Navbar, Block, Link } from 'framework7-react';
+import { Page, Navbar, Block, Link, f7 } from 'framework7-react';
 import store from '../js/store';
 
 const StartPage = () => {

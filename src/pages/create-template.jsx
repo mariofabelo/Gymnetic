@@ -98,15 +98,27 @@ const CreateTemplatePage = ({ editTemplate }) => {
     // Calculate estimated duration based on exercises (5 minutes per exercise on average)
     const estimatedDuration = Math.max(20, exercises.length * 5);
 
-    // Save template to store
-    const template = {
-      name: templateName.trim(),
-      emoji: selectedEmoji,
-      exercises: exercises,
-      duration: estimatedDuration
-    };
-
-    store.dispatch('addWorkoutTemplate', template);
+    if (isEditing) {
+      // Update existing template
+      const updatedTemplate = {
+        id: editingTemplateId,
+        name: templateName.trim(),
+        emoji: selectedEmoji,
+        exercises: exercises,
+        duration: estimatedDuration,
+        createdAt: editTemplate?.createdAt || new Date()
+      };
+      store.dispatch('updateWorkoutTemplate', updatedTemplate);
+    } else {
+      // Create new template
+      const template = {
+        name: templateName.trim(),
+        emoji: selectedEmoji,
+        exercises: exercises,
+        duration: estimatedDuration
+      };
+      store.dispatch('addWorkoutTemplate', template);
+    }
 
     // Navigate back to start page
     f7.views.current.router.back();

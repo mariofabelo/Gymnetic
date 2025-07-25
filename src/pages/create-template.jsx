@@ -76,20 +76,27 @@ const CreateTemplatePage = () => {
       console.log('Please enter a template name');
       return;
     }
-    
+
     if (exercises.length === 0) {
       console.log('Please add at least one exercise');
       return;
     }
 
-    // TODO: Save template to storage/database
-    console.log('Saving template:', {
-      name: templateName,
-      exercises: exercises
-    });
-    
+    // Calculate estimated duration based on exercises (5 minutes per exercise on average)
+    const estimatedDuration = Math.max(20, exercises.length * 5);
+
+    // Save template to store
+    const template = {
+      name: templateName.trim(),
+      emoji: selectedEmoji,
+      exercises: exercises,
+      duration: estimatedDuration
+    };
+
+    store.dispatch('addWorkoutTemplate', template);
+
     // Navigate back to start page
-    // f7router.back();
+    window.f7router.back();
   };
 
   const handleAddExerciseFromLibrary = (exerciseName) => {

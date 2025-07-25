@@ -1,10 +1,45 @@
 import React, { useState } from 'react';
-import { Page, Navbar, Block, Button, List, ListInput, ListItem, Link, Popup } from 'framework7-react';
+import { Page, Navbar, Block, Button, List, ListInput, ListItem, Link, Popup, f7 } from 'framework7-react';
+import store from '../js/store';
 
-const CreateTemplatePage = () => {
+const CreateTemplatePage = ({ editTemplate }) => {
   const [templateName, setTemplateName] = useState('');
+  const [selectedEmoji, setSelectedEmoji] = useState('💪');
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [exercises, setExercises] = useState([]);
   const [showExerciseLibrary, setShowExerciseLibrary] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editingTemplateId, setEditingTemplateId] = useState(null);
+
+  // Initialize with edit data if provided
+  React.useEffect(() => {
+    if (editTemplate) {
+      setIsEditing(true);
+      setEditingTemplateId(editTemplate.id);
+      setTemplateName(editTemplate.name);
+      setSelectedEmoji(editTemplate.emoji);
+      // Ensure all exercises have proper sets structure
+      const exercisesWithSets = (editTemplate.exercises || []).map(exercise => ({
+        ...exercise,
+        id: exercise.id || Date.now() + Math.random(),
+        sets: exercise.sets && exercise.sets.length > 0
+          ? exercise.sets.map(set => ({
+              id: set.id || Date.now() + Math.random(),
+              weight: set.weight || '',
+              reps: set.reps || ''
+            }))
+          : [{ id: Date.now() + Math.random(), weight: '', reps: '' }]
+      }));
+      setExercises(exercisesWithSets);
+    }
+  }, [editTemplate]);
+
+  // Common workout emojis
+  const workoutEmojis = [
+    '💪', '🏋️', '🤸', '🏃', '🚴', '🧘', '🏊', '🤾', '⚽', '🏀',
+    '🎾', '🏐', '🏈', '⚾', '🏓', '🏸', '🥊', '🤺', '🏆', '🥇',
+    '🔥', '⚡', '💥', '🎯', '🚀', '💯', '⭐', '✨', '🦵', '🏃‍♀️'
+  ];
 
   // Exercise library with categories
   const exerciseLibrary = [
@@ -72,21 +107,40 @@ const CreateTemplatePage = () => {
       return;
     }
 
-    // TODO: Save template to storage/database
-    console.log('Saving template:', {
-      name: templateName,
-      exercises: exercises
-    });
+    // Calculate estimated duration based on exercises (5 minutes per exercise on average)
+    const estimatedDuration = Math.max(20, exercises.length * 5);
+
+    if (isEditing) {
+      // Update existing template
+      const updatedTemplate = {
+        id: editingTemplateId,
+        name: templateName.trim(),
+        emoji: selectedEmoji,
+        exercises: exercises,
+        duration: estimatedDuration,
+        createdAt: editTemplate?.createdAt || new Date()
+      };
+      store.dispatch('updateWorkoutTemplate', updatedTemplate);
+    } else {
+      // Create new template
+      const template = {
+        name: templateName.trim(),
+        emoji: selectedEmoji,
+        exercises: exercises,
+        duration: estimatedDuration
+      };
+      store.dispatch('addWorkoutTemplate', template);
+    }
     
     // Navigate back to start page
-    // f7router.back();
+    f7.views.current.router.back();
   };
 
   const handleAddExerciseFromLibrary = (exerciseName) => {
     const newExercise = {
       id: Date.now(),
       name: exerciseName,
-      sets: [],
+      sets: [{ id: Date.now(), weight: '', reps: '' }], // Default one set
       notes: ''
     };
 
@@ -98,21 +152,82 @@ const CreateTemplatePage = () => {
     setExercises(exercises.filter(ex => ex.id !== exerciseId));
   };
 
+  const handleAddSet = (exerciseId) => {
+    setExercises(exercises.map(exercise => {
+      if (exercise.id === exerciseId) {
+        const newSet = {
+          id: Date.now() + Math.random(), // Ensure unique ID
+          weight: '',
+          reps: ''
+        };
+        return {
+          ...exercise,
+          sets: [...exercise.sets, newSet]
+        };
+      }
+      return exercise;
+    }));
+  };
+
+  const handleRemoveSet = (exerciseId, setId) => {
+    setExercises(exercises.map(exercise => {
+      if (exercise.id === exerciseId) {
+        return {
+          ...exercise,
+          sets: exercise.sets.filter(set => set.id !== setId)
+        };
+      }
+      return exercise;
+    }));
+  };
+
+  const handleSetChange = (exerciseId, setId, field, value) => {
+    setExercises(exercises.map(exercise => {
+      if (exercise.id === exerciseId) {
+        return {
+          ...exercise,
+          sets: exercise.sets.map(set => {
+            if (set.id === setId) {
+              return {
+                ...set,
+                [field]: value
+              };
+            }
+            return set;
+          })
+        };
+      }
+      return exercise;
+    }));
+  };
+
   return (
     <Page name="create-template" className="activity-page">
-      <Navbar title="Create Template" backLink="Back" />
+      <Navbar title={isEditing ? "Edit Template" : "Create Template"} backLink="Back" />
       <Block className="activity-content">
         {/* Template Name Section */}
-        <div className="template-name-section">
-          <List noHairlines>
-            <ListInput
-              type="text"
-              placeholder="Enter template name"
-              value={templateName}
-              onInput={(e) => setTemplateName(e.target.value)}
-              clearButton
-            />
-          </List>
+        <div className="glass-card template-name-section">
+          <h3>Template Details</h3>
+          <div className="template-input-row">
+            <div 
+              className="emoji-selector"
+              onClick={() => setShowEmojiPicker(true)}
+            >
+              <span className="selected-emoji">{selectedEmoji}</span>
+              <span className="emoji-label">Tap to change</span>
+            </div>
+            <div className="name-input-container">
+              <List noHairlines>
+                <ListInput
+                  type="text"
+                  placeholder="Enter name"
+                  value={templateName}
+                  onInput={(e) => setTemplateName(e.target.value)}
+                  clearButton
+                />
+              </List>
+            </div>
+          </div>
         </div>
 
         {/* Exercises Section */}
@@ -139,17 +254,77 @@ const CreateTemplatePage = () => {
               exercises.map((exercise, index) => (
                 <div key={exercise.id} className="exercise-item">
                   <div className="exercise-content">
-                    <div className="exercise-number">{index + 1}</div>
-                    <div className="exercise-details">
-                      <h4>{exercise.name}</h4>
-                      <p>Sets: {exercise.sets.length || 0}</p>
+                    <div className="exercise-header">
+                      <div className="exercise-number">{index + 1}</div>
+                      <div className="exercise-details">
+                        <h4>{exercise.name}</h4>
+                        <p>Sets: {exercise.sets.length || 0}</p>
+                      </div>
+                      <Button
+                        className="remove-exercise-btn"
+                        onClick={() => handleRemoveExercise(exercise.id)}
+                      >
+                        ×
+                      </Button>
                     </div>
-                    <Button 
-                      className="remove-exercise-btn"
-                      onClick={() => handleRemoveExercise(exercise.id)}
-                    >
-                      ×
-                    </Button>
+
+                    {/* Sets Management - Table Style */}
+                    <div className="sets-section">
+                      <div className="sets-table">
+                        <div className="sets-table-header">
+                          <div className="header-set">Set</div>
+                          <div className="header-weight">kg</div>
+                          <div className="header-reps">Reps</div>
+                        </div>
+
+                        <div className="sets-table-body">
+                          {exercise.sets.map((set, setIndex) => (
+                            <div key={set.id} className="set-row">
+                              <div className="set-number">{setIndex + 1}</div>
+                              <div className="set-weight">
+                                <input
+                                  type="text"
+                                  inputMode="decimal"
+                                  placeholder="kg"
+                                  value={set.weight}
+                                  onChange={(e) => handleSetChange(exercise.id, set.id, 'weight', e.target.value)}
+                                  className="set-input"
+                                />
+                              </div>
+                              <div className="set-reps">
+                                <input
+                                  type="text"
+                                  inputMode="numeric"
+                                  placeholder="reps"
+                                  value={set.reps}
+                                  onChange={(e) => handleSetChange(exercise.id, set.id, 'reps', e.target.value)}
+                                  className="set-input"
+                                />
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Set Management Actions */}
+                      <div className="set-actions-row">
+                        {exercise.sets.length > 1 && (
+                          <Button
+                            className="remove-last-set-btn"
+                            onClick={() => handleRemoveSet(exercise.id, exercise.sets[exercise.sets.length - 1].id)}
+                          >
+                            - Remove Last Set
+                          </Button>
+                        )}
+                      </div>
+
+                      <Button
+                        className="add-set-btn"
+                        onClick={() => handleAddSet(exercise.id)}
+                      >
+                        + Add Set
+                      </Button>
+                    </div>
                   </div>
                 </div>
               ))
@@ -164,7 +339,7 @@ const CreateTemplatePage = () => {
             onClick={handleSaveTemplate}
             disabled={!templateName.trim() || exercises.length === 0}
           >
-            Save Template
+            {isEditing ? "Update Template" : "Save Template"}
           </Button>
         </div>
 
@@ -202,6 +377,40 @@ const CreateTemplatePage = () => {
                           </div>
                         ))}
                       </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Emoji Picker Modal */}
+        {showEmojiPicker && (
+          <div className="emoji-picker-modal-backdrop" onClick={() => setShowEmojiPicker(false)}>
+            <div className="emoji-picker-modal" onClick={(e) => e.stopPropagation()}>
+              <div className="modal-header">
+                <h2>Choose an Emoji</h2>
+                <Button
+                  className="close-modal-btn"
+                  onClick={() => setShowEmojiPicker(false)}
+                >
+                  ×
+                </Button>
+              </div>
+
+              <div className="modal-content">
+                <div className="emoji-grid">
+                  {workoutEmojis.map((emoji, index) => (
+                    <div
+                      key={index}
+                      className={`emoji-option ${selectedEmoji === emoji ? 'selected' : ''}`}
+                      onClick={() => {
+                        setSelectedEmoji(emoji);
+                        setShowEmojiPicker(false);
+                      }}
+                    >
+                      {emoji}
                     </div>
                   ))}
                 </div>

@@ -1,4 +1,3 @@
-
 import { createStore } from 'framework7/lite';
 
 const store = createStore({
@@ -19,17 +18,89 @@ const store = createStore({
         title: 'Apple iPhone X',
         description: 'Expedita sequi perferendis quod illum pariatur aliquam, alias laboriosam! Vero blanditiis placeat, mollitia necessitatibus reprehenderit. Labore dolores amet quos, accusamus earum asperiores officiis assumenda optio architecto quia neque, quae eum.'
       },
+    ],
+    workoutTemplates: [
+      {
+        id: '1',
+        name: 'Upper Body',
+        emoji: '🏋️',
+        exercises: [
+          { name: 'Bench Press', sets: [{ id: 1, weight: '84', reps: '8' }], notes: '' },
+          { name: 'Pull-ups', sets: [{ id: 2, weight: '', reps: '10' }], notes: '' },
+          { name: 'Shoulder Press', sets: [{ id: 3, weight: '29', reps: '12' }], notes: '' },
+          { name: 'Bicep Curls', sets: [{ id: 4, weight: '14', reps: '12' }], notes: '' },
+          { name: 'Tricep Extensions', sets: [{ id: 5, weight: '11', reps: '15' }], notes: '' },
+          { name: 'Dumbbell Flyes', sets: [{ id: 6, weight: '9', reps: '12' }], notes: '' }
+        ],
+        duration: 45,
+        createdAt: new Date('2024-01-01')
+      },
+      {
+        id: '2',
+        name: 'Legs',
+        emoji: '🦵',
+        exercises: [
+          { name: 'Squats', sets: [{ id: 7, weight: '102', reps: '8' }], notes: '' },
+          { name: 'Deadlifts', sets: [{ id: 8, weight: '125', reps: '5' }], notes: '' },
+          { name: 'Lunges', sets: [{ id: 9, weight: '18', reps: '12' }], notes: '' },
+          { name: 'Leg Press', sets: [{ id: 10, weight: '163', reps: '10' }], notes: '' },
+          { name: 'Leg Curls', sets: [{ id: 11, weight: '54', reps: '12' }], notes: '' },
+          { name: 'Calf Raises', sets: [{ id: 12, weight: '82', reps: '15' }], notes: '' },
+          { name: 'Bulgarian Split Squats', sets: [{ id: 13, weight: '11', reps: '10' }], notes: '' }
+        ],
+        duration: 50,
+        createdAt: new Date('2024-01-02')
+      },
+      {
+        id: '3',
+        name: 'Full Body',
+        emoji: '🏃',
+        exercises: [
+          { name: 'Burpees', sets: [{ id: 14, weight: '', reps: '15' }], notes: '' },
+          { name: 'Push-ups', sets: [{ id: 15, weight: '', reps: '20' }], notes: '' },
+          { name: 'Squats', sets: [{ id: 16, weight: '', reps: '25' }], notes: '' },
+          { name: 'Pull-ups', sets: [{ id: 17, weight: '', reps: '8' }], notes: '' },
+          { name: 'Planks', sets: [{ id: 18, weight: '', reps: '60' }], notes: '' },
+          { name: 'Mountain Climbers', sets: [{ id: 19, weight: '', reps: '30' }], notes: '' },
+          { name: 'Jump Squats', sets: [{ id: 20, weight: '', reps: '20' }], notes: '' },
+          { name: 'Dips', sets: [{ id: 21, weight: '', reps: '12' }], notes: '' }
+        ],
+        duration: 35,
+        createdAt: new Date('2024-01-03')
+      }
     ]
   },
   getters: {
     products({ state }) {
       return state.products;
+    },
+    workoutTemplates({ state }) {
+      return state.workoutTemplates;
     }
   },
   actions: {
     addProduct({ state }, product) {
       state.products = [...state.products, product];
     },
+    addWorkoutTemplate({ state }, template) {
+      const newTemplate = {
+        ...template,
+        id: Date.now().toString(),
+        createdAt: new Date()
+      };
+      state.workoutTemplates = [...state.workoutTemplates, newTemplate];
+    },
+    updateWorkoutTemplate({ state }, updatedTemplate) {
+      const index = state.workoutTemplates.findIndex(template => template.id === updatedTemplate.id);
+      if (index !== -1) {
+        state.workoutTemplates[index] = updatedTemplate;
+        // Trigger reactivity by creating new array
+        state.workoutTemplates = [...state.workoutTemplates];
+      }
+    },
+    removeWorkoutTemplate({ state }, templateId) {
+      state.workoutTemplates = state.workoutTemplates.filter(template => template.id !== templateId);
+    }
   },
 })
 export default store;

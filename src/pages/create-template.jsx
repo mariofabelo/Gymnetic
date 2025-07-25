@@ -1,10 +1,20 @@
 import React, { useState } from 'react';
 import { Page, Navbar, Block, Button, List, ListInput, ListItem, Link, Popup } from 'framework7-react';
+import store from '../js/store';
 
 const CreateTemplatePage = () => {
   const [templateName, setTemplateName] = useState('');
+  const [selectedEmoji, setSelectedEmoji] = useState('💪');
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [exercises, setExercises] = useState([]);
   const [showExerciseLibrary, setShowExerciseLibrary] = useState(false);
+
+  // Common workout emojis
+  const workoutEmojis = [
+    '💪', '🏋️', '🤸', '🏃', '🚴', '🧘', '🏊', '🤾', '⚽', '🏀',
+    '🎾', '🏐', '🏈', '⚾', '🏓', '🏸', '🥊', '🤺', '🏆', '🥇',
+    '🔥', '⚡', '💥', '🎯', '🚀', '💯', '⭐', '✨', '🦵', '🏃‍♀️'
+  ];
 
   // Exercise library with categories
   const exerciseLibrary = [

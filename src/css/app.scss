@@ -348,10 +348,11 @@ body {
   
   h1 {
     color: #000000;
-    font-size: 32px;
+    font-size: 34px; /* Increased font size */
     font-weight: 700;
     margin: 0;
     font-family: -apple-system, SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+    line-height: 1.1; /* Added line height */
   }
 }
 
@@ -365,9 +366,10 @@ body {
   
   h1 {
     color: #000000;
-    font-size: 32px;
+    font-size: 34px; /* Match base title size */
     font-weight: 700;
     margin: 0;
+    line-height: 1.1; /* Added line height */
   }
 }
 
@@ -1873,6 +1875,17 @@ body {
         font-size: 13px;
         padding: 5px 10px;
       }
+    }
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+  .page-title, .connect-title {
+    margin-bottom: 16px;
+    
+    h1 {
+      font-size: 32px; /* Consistent mobile size */
     }
   }
 }

@@ -36,7 +36,7 @@ const StartPage = () => {
   };
 
   return (
-    <Page name="start" className="activity-page">
+    <Page name="start" className="activity-page" onPageBeforeIn={onPageBeforeIn}>
       <Navbar />
       <Block className="activity-content">
         {/* Page Title */}

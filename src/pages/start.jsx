@@ -117,6 +117,67 @@ const StartPage = () => {
             </Link>
           </div>
         </div>
+
+        {/* Template Details Popup */}
+        {showTemplateDetails && selectedTemplate && (
+          <div className="template-details-modal-backdrop" onClick={() => setShowTemplateDetails(false)}>
+            <div className="template-details-modal" onClick={(e) => e.stopPropagation()}>
+              <div className="modal-header">
+                <div className="template-header-info">
+                  <div className="template-emoji">{selectedTemplate.emoji}</div>
+                  <div>
+                    <h2>{selectedTemplate.name}</h2>
+                    <p className="template-meta">~{selectedTemplate.duration} min • {selectedTemplate.exercises.length} exercises</p>
+                  </div>
+                </div>
+                <Button
+                  className="close-modal-btn"
+                  onClick={() => setShowTemplateDetails(false)}
+                >
+                  ×
+                </Button>
+              </div>
+
+              <div className="modal-content">
+                <div className="template-exercises-list">
+                  <h3>Exercises</h3>
+                  {selectedTemplate.exercises.map((exercise, index) => (
+                    <div key={index} className="template-exercise-item">
+                      <div className="exercise-number">{index + 1}</div>
+                      <div className="exercise-details">
+                        <h4>{exercise.name}</h4>
+                        <p className="exercise-sets">
+                          {exercise.sets && exercise.sets.length > 0
+                            ? `${exercise.sets.length} sets`
+                            : 'No sets configured'
+                          }
+                        </p>
+                        {exercise.notes && (
+                          <p className="exercise-notes">{exercise.notes}</p>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="modal-actions">
+                <Button
+                  className="edit-template-btn"
+                  onClick={handleEditTemplate}
+                >
+                  Edit Template
+                </Button>
+                <Button
+                  className="start-workout-btn"
+                  onClick={handleStartWorkout}
+                >
+                  Start Workout
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
       </Block>
     </Page>
   );

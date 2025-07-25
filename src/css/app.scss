@@ -1065,26 +1065,26 @@ body {
   .modal-content {
     overflow-y: auto;
     flex: 1;
-    padding: 0 24px 24px 24px;
+    padding: 0 20px 20px 20px;
 
     .template-exercises-list {
       h3 {
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 600;
         color: #000;
-        margin: 16px 0;
-        padding-bottom: 8px;
+        margin: 12px 0;
+        padding-bottom: 6px;
         border-bottom: 2px solid #007AFF;
       }
 
       .template-exercise-item {
         display: flex;
         align-items: flex-start;
-        gap: 16px;
-        padding: 16px;
+        gap: 12px;
+        padding: 12px;
         background: rgba(247, 247, 247, 0.6);
-        border-radius: 12px;
-        margin-bottom: 12px;
+        border-radius: 10px;
+        margin-bottom: 8px;
         transition: all 0.2s ease;
 
         &:hover {
@@ -1095,14 +1095,14 @@ body {
         .exercise-number {
           background: #007AFF;
           color: white;
-          width: 32px;
-          height: 32px;
-          border-radius: 16px;
+          width: 28px;
+          height: 28px;
+          border-radius: 14px;
           display: flex;
           align-items: center;
           justify-content: center;
           font-weight: 600;
-          font-size: 14px;
+          font-size: 13px;
           flex-shrink: 0;
         }
 
@@ -1110,22 +1110,22 @@ body {
           flex: 1;
 
           h4 {
-            margin: 0 0 6px 0;
-            font-size: 18px;
+            margin: 0 0 4px 0;
+            font-size: 16px;
             font-weight: 600;
             color: #000;
           }
 
           .exercise-sets {
-            margin: 0 0 4px 0;
-            font-size: 14px;
+            margin: 0 0 3px 0;
+            font-size: 13px;
             color: #007AFF;
             font-weight: 500;
           }
 
           .exercise-notes {
             margin: 0;
-            font-size: 14px;
+            font-size: 13px;
             color: #666;
             font-style: italic;
           }

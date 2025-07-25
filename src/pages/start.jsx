@@ -152,6 +152,25 @@ const StartPage = () => {
                             : 'No sets configured'
                           }
                         </p>
+                        {exercise.sets && exercise.sets.length > 0 && (
+                          <div className="exercise-sets-details">
+                            {exercise.sets.map((set, setIndex) => (
+                              <div key={setIndex} className="set-details">
+                                <span className="set-number">Set {setIndex + 1}:</span>
+                                <span className="set-info">
+                                  {set.weight && set.reps
+                                    ? `${set.weight} lbs × ${set.reps} reps`
+                                    : set.weight
+                                      ? `${set.weight} lbs`
+                                      : set.reps
+                                        ? `${set.reps} reps`
+                                        : 'Not configured'
+                                  }
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
                         {exercise.notes && (
                           <p className="exercise-notes">{exercise.notes}</p>
                         )}

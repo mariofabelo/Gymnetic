@@ -58,47 +58,27 @@ const StartPage = () => {
           </div>
 
           <div className="templates-grid">
-            <div className="template-card" onClick={() => handleTemplateSelect('Upper Body')}>
-              <div className="template-content">
-                <div className="template-icon">🏋️</div>
-                <h4>Upper Body</h4>
-                <div className="template-exercises">
-                  <span>Bench Press</span>
-                  <span>Pull-ups</span>
-                  <span>Shoulder Press</span>
-                  <span>+3 more</span>
+            {templates.map((template) => (
+              <div
+                key={template.id}
+                className="template-card"
+                onClick={() => handleTemplateSelect(template.name, template.id)}
+              >
+                <div className="template-content">
+                  <div className="template-icon">{template.emoji}</div>
+                  <h4>{template.name}</h4>
+                  <div className="template-exercises">
+                    {template.exercises.slice(0, 3).map((exercise, index) => (
+                      <span key={index}>{exercise.name}</span>
+                    ))}
+                    {template.exercises.length > 3 && (
+                      <span>+{template.exercises.length - 3} more</span>
+                    )}
+                  </div>
+                  <div className="template-duration">~{template.duration} min</div>
                 </div>
-                <div className="template-duration">~45 min</div>
               </div>
-            </div>
-
-            <div className="template-card" onClick={() => handleTemplateSelect('Legs')}>
-              <div className="template-content">
-                <div className="template-icon">🦵</div>
-                <h4>Legs</h4>
-                <div className="template-exercises">
-                  <span>Squats</span>
-                  <span>Deadlifts</span>
-                  <span>Lunges</span>
-                  <span>+4 more</span>
-                </div>
-                <div className="template-duration">~50 min</div>
-              </div>
-            </div>
-
-            <div className="template-card" onClick={() => handleTemplateSelect('Full Body')}>
-              <div className="template-content">
-                <div className="template-icon">🏃</div>
-                <h4>Full Body</h4>
-                <div className="template-exercises">
-                  <span>Burpees</span>
-                  <span>Push-ups</span>
-                  <span>Squats</span>
-                  <span>+5 more</span>
-                </div>
-                <div className="template-duration">~35 min</div>
-              </div>
-            </div>
+            ))}
 
             <Link href="/create-template/" className="template-card create-template">
               <div className="template-content">

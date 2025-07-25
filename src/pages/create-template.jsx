@@ -128,7 +128,7 @@ const CreateTemplatePage = ({ editTemplate }) => {
     const newExercise = {
       id: Date.now(),
       name: exerciseName,
-      sets: [],
+      sets: [{ id: Date.now(), weight: '', reps: '' }], // Default one set
       notes: ''
     };
 
@@ -138,6 +138,55 @@ const CreateTemplatePage = ({ editTemplate }) => {
 
   const handleRemoveExercise = (exerciseId) => {
     setExercises(exercises.filter(ex => ex.id !== exerciseId));
+  };
+
+  const handleAddSet = (exerciseId) => {
+    setExercises(exercises.map(exercise => {
+      if (exercise.id === exerciseId) {
+        const newSet = {
+          id: Date.now() + Math.random(), // Ensure unique ID
+          weight: '',
+          reps: ''
+        };
+        return {
+          ...exercise,
+          sets: [...exercise.sets, newSet]
+        };
+      }
+      return exercise;
+    }));
+  };
+
+  const handleRemoveSet = (exerciseId, setId) => {
+    setExercises(exercises.map(exercise => {
+      if (exercise.id === exerciseId) {
+        return {
+          ...exercise,
+          sets: exercise.sets.filter(set => set.id !== setId)
+        };
+      }
+      return exercise;
+    }));
+  };
+
+  const handleSetChange = (exerciseId, setId, field, value) => {
+    setExercises(exercises.map(exercise => {
+      if (exercise.id === exerciseId) {
+        return {
+          ...exercise,
+          sets: exercise.sets.map(set => {
+            if (set.id === setId) {
+              return {
+                ...set,
+                [field]: value
+              };
+            }
+            return set;
+          })
+        };
+      }
+      return exercise;
+    }));
   };
 
   return (
@@ -193,17 +242,65 @@ const CreateTemplatePage = ({ editTemplate }) => {
               exercises.map((exercise, index) => (
                 <div key={exercise.id} className="exercise-item">
                   <div className="exercise-content">
-                    <div className="exercise-number">{index + 1}</div>
-                    <div className="exercise-details">
-                      <h4>{exercise.name}</h4>
-                      <p>Sets: {exercise.sets.length || 0}</p>
+                    <div className="exercise-header">
+                      <div className="exercise-number">{index + 1}</div>
+                      <div className="exercise-details">
+                        <h4>{exercise.name}</h4>
+                        <p>Sets: {exercise.sets.length || 0}</p>
+                      </div>
+                      <Button
+                        className="remove-exercise-btn"
+                        onClick={() => handleRemoveExercise(exercise.id)}
+                      >
+                        ×
+                      </Button>
                     </div>
-                    <Button 
-                      className="remove-exercise-btn"
-                      onClick={() => handleRemoveExercise(exercise.id)}
-                    >
-                      ×
-                    </Button>
+
+                    {/* Sets Management */}
+                    <div className="sets-section">
+                      {exercise.sets.map((set, setIndex) => (
+                        <div key={set.id} className="set-item">
+                          <span className="set-number">Set {setIndex + 1}</span>
+                          <div className="set-inputs">
+                            <div className="input-group">
+                              <input
+                                type="number"
+                                placeholder="Weight"
+                                value={set.weight}
+                                onChange={(e) => handleSetChange(exercise.id, set.id, 'weight', e.target.value)}
+                                className="set-input"
+                              />
+                              <span className="input-label">lbs</span>
+                            </div>
+                            <div className="input-group">
+                              <input
+                                type="number"
+                                placeholder="Reps"
+                                value={set.reps}
+                                onChange={(e) => handleSetChange(exercise.id, set.id, 'reps', e.target.value)}
+                                className="set-input"
+                              />
+                              <span className="input-label">reps</span>
+                            </div>
+                            {exercise.sets.length > 1 && (
+                              <Button
+                                className="remove-set-btn"
+                                onClick={() => handleRemoveSet(exercise.id, set.id)}
+                              >
+                                ×
+                              </Button>
+                            )}
+                          </div>
+                        </div>
+                      ))}
+
+                      <Button
+                        className="add-set-btn"
+                        onClick={() => handleAddSet(exercise.id)}
+                      >
+                        + Add Set
+                      </Button>
+                    </div>
                   </div>
                 </div>
               ))

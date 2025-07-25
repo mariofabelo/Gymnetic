@@ -273,7 +273,7 @@ const CreateTemplatePage = ({ editTemplate }) => {
                       <div className="sets-table">
                         <div className="sets-table-header">
                           <div className="header-set">Set</div>
-                          <div className="header-weight">Weight (kg)</div>
+                          <div className="header-weight">kg</div>
                           <div className="header-reps">Reps</div>
                           <div className="header-actions"></div>
                         </div>

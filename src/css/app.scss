@@ -631,57 +631,166 @@ body {
       margin-bottom: 8px;
 
       .exercise-content {
-        display: flex;
-        align-items: center;
         padding: 16px;
 
-        .exercise-number {
-          background: #007AFF;
-          color: white;
-          width: 32px;
-          height: 32px;
-          border-radius: 16px;
+        .exercise-header {
           display: flex;
           align-items: center;
-          justify-content: center;
-          font-weight: 600;
-          font-size: 14px;
-          margin-right: 16px;
-        }
+          margin-bottom: 16px;
 
-        .exercise-details {
-          flex: 1;
-
-          h4 {
-            margin: 0 0 4px 0;
-            font-size: 16px;
+          .exercise-number {
+            background: #007AFF;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: 600;
-            color: #000;
+            font-size: 14px;
+            margin-right: 16px;
           }
 
-          p {
-            margin: 0;
-            font-size: 14px;
-            color: #8E8E93;
+          .exercise-details {
+            flex: 1;
+
+            h4 {
+              margin: 0 0 4px 0;
+              font-size: 16px;
+              font-weight: 600;
+              color: #000;
+            }
+
+            p {
+              margin: 0;
+              font-size: 14px;
+              color: #8E8E93;
+            }
+          }
+
+          .remove-exercise-btn {
+            background: #FF3B30;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 16px;
+            border: none;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover {
+              background: #D70015;
+            }
           }
         }
 
-        .remove-exercise-btn {
-          background: #FF3B30;
-          color: white;
-          width: 32px;
-          height: 32px;
-          border-radius: 16px;
-          border: none;
-          font-size: 18px;
-          font-weight: bold;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+        .sets-section {
+          background: rgba(255, 255, 255, 0.8);
+          border-radius: 12px;
+          padding: 16px;
+          border: 1px solid rgba(0, 0, 0, 0.05);
 
-          &:hover {
-            background: #D70015;
+          .set-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 12px;
+            background: rgba(247, 247, 247, 0.8);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+
+            &:last-of-type {
+              margin-bottom: 16px;
+            }
+
+            .set-number {
+              font-size: 14px;
+              font-weight: 600;
+              color: #007AFF;
+              min-width: 50px;
+              margin-right: 12px;
+            }
+
+            .set-inputs {
+              display: flex;
+              align-items: center;
+              gap: 12px;
+              flex: 1;
+
+              .input-group {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+
+                .set-input {
+                  width: 70px;
+                  padding: 8px 12px;
+                  border: 1px solid rgba(0, 0, 0, 0.1);
+                  border-radius: 6px;
+                  font-size: 14px;
+                  text-align: center;
+                  background: white;
+
+                  &:focus {
+                    outline: none;
+                    border-color: #007AFF;
+                    background: rgba(0, 122, 255, 0.05);
+                  }
+
+                  &::placeholder {
+                    color: #AEAEB2;
+                  }
+                }
+
+                .input-label {
+                  font-size: 12px;
+                  color: #8E8E93;
+                  font-weight: 500;
+                  min-width: 30px;
+                }
+              }
+
+              .remove-set-btn {
+                background: #FF3B30;
+                color: white;
+                width: 24px;
+                height: 24px;
+                border-radius: 12px;
+                border: none;
+                font-size: 14px;
+                font-weight: bold;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-left: 8px;
+
+                &:hover {
+                  background: #D70015;
+                }
+              }
+            }
+          }
+
+          .add-set-btn {
+            background: #34C759;
+            color: white;
+            border-radius: 8px;
+            padding: 10px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+
+            &:hover {
+              background: #30A14E;
+            }
           }
         }
       }

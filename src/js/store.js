@@ -25,12 +25,12 @@ const store = createStore({
         name: 'Upper Body',
         emoji: '🏋️',
         exercises: [
-          { name: 'Bench Press', sets: [], notes: '' },
-          { name: 'Pull-ups', sets: [], notes: '' },
-          { name: 'Shoulder Press', sets: [], notes: '' },
-          { name: 'Bicep Curls', sets: [], notes: '' },
-          { name: 'Tricep Extensions', sets: [], notes: '' },
-          { name: 'Dumbbell Flyes', sets: [], notes: '' }
+          { name: 'Bench Press', sets: [{ id: 1, weight: '185', reps: '8' }], notes: '' },
+          { name: 'Pull-ups', sets: [{ id: 2, weight: '', reps: '10' }], notes: '' },
+          { name: 'Shoulder Press', sets: [{ id: 3, weight: '65', reps: '12' }], notes: '' },
+          { name: 'Bicep Curls', sets: [{ id: 4, weight: '30', reps: '12' }], notes: '' },
+          { name: 'Tricep Extensions', sets: [{ id: 5, weight: '25', reps: '15' }], notes: '' },
+          { name: 'Dumbbell Flyes', sets: [{ id: 6, weight: '20', reps: '12' }], notes: '' }
         ],
         duration: 45,
         createdAt: new Date('2024-01-01')

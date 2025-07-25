@@ -238,6 +238,40 @@ const CreateTemplatePage = () => {
             </div>
           </div>
         )}
+
+        {/* Emoji Picker Modal */}
+        {showEmojiPicker && (
+          <div className="emoji-picker-modal-backdrop" onClick={() => setShowEmojiPicker(false)}>
+            <div className="emoji-picker-modal" onClick={(e) => e.stopPropagation()}>
+              <div className="modal-header">
+                <h2>Choose an Emoji</h2>
+                <Button
+                  className="close-modal-btn"
+                  onClick={() => setShowEmojiPicker(false)}
+                >
+                  ×
+                </Button>
+              </div>
+
+              <div className="modal-content">
+                <div className="emoji-grid">
+                  {workoutEmojis.map((emoji, index) => (
+                    <div
+                      key={index}
+                      className={`emoji-option ${selectedEmoji === emoji ? 'selected' : ''}`}
+                      onClick={() => {
+                        setSelectedEmoji(emoji);
+                        setShowEmojiPicker(false);
+                      }}
+                    >
+                      {emoji}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </Block>
     </Page>
   );

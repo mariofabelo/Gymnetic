@@ -40,13 +40,13 @@ const store = createStore({
         name: 'Legs',
         emoji: '🦵',
         exercises: [
-          { name: 'Squats', sets: [], notes: '' },
-          { name: 'Deadlifts', sets: [], notes: '' },
-          { name: 'Lunges', sets: [], notes: '' },
-          { name: 'Leg Press', sets: [], notes: '' },
-          { name: 'Leg Curls', sets: [], notes: '' },
-          { name: 'Calf Raises', sets: [], notes: '' },
-          { name: 'Bulgarian Split Squats', sets: [], notes: '' }
+          { name: 'Squats', sets: [{ id: 7, weight: '225', reps: '8' }], notes: '' },
+          { name: 'Deadlifts', sets: [{ id: 8, weight: '275', reps: '5' }], notes: '' },
+          { name: 'Lunges', sets: [{ id: 9, weight: '40', reps: '12' }], notes: '' },
+          { name: 'Leg Press', sets: [{ id: 10, weight: '360', reps: '10' }], notes: '' },
+          { name: 'Leg Curls', sets: [{ id: 11, weight: '120', reps: '12' }], notes: '' },
+          { name: 'Calf Raises', sets: [{ id: 12, weight: '180', reps: '15' }], notes: '' },
+          { name: 'Bulgarian Split Squats', sets: [{ id: 13, weight: '25', reps: '10' }], notes: '' }
         ],
         duration: 50,
         createdAt: new Date('2024-01-02')

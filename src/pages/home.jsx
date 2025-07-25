@@ -17,16 +17,10 @@ const HomePage = () => {
   return (
     <Page name="home" className="activity-page">
       {/* Page content */}
-      <Block className="activity-content dashboard-top">
+      <Block className="activity-content">
         {/* Dashboard Title */}
-        <div className="page-title dashboard-title">
-          <h1 style={{
-            fontFamily: '-apple-system, SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif',
-            fontSize: '26px',
-            fontWeight: '600',
-            margin: '0',
-            textAlign: 'left'
-          }}>Dashboard</h1>
+        <div className="page-title">
+          <h1>Dashboard</h1>
         </div>
 
         {/* Profile Section */}
@@ -51,13 +45,7 @@ const HomePage = () => {
 
         {/* This Week's Title */}
         <div className="page-title" style={{ marginBottom: '0px', marginTop: '16px' }}>
-          <h1 style={{
-            fontFamily: '-apple-system, SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif',
-            fontSize: '26px',
-            fontWeight: '600',
-            margin: '0',
-            textAlign: 'left'
-          }}>This Week</h1>
+          <h1>This Week</h1>
         </div>
 
         {/* This Week's Workouts Section */}

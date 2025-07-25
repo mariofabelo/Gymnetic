@@ -20,13 +20,7 @@ const HistoryPage = () => {
       <Block className="activity-content">
         {/* Page Title */}
         <div className="page-title">
-          <h1 style={{
-            fontFamily: '-apple-system, SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif',
-            fontSize: '26px',
-            fontWeight: '600',
-            margin: '0',
-            textAlign: 'left'
-          }}>History</h1>
+          <h1>History</h1>
         </div>
 
         {/* Header with stats */}

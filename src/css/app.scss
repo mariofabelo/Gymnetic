@@ -343,17 +343,15 @@ body {
 
 /* Page Title - Base styles for all pages */
 .page-title {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   padding-left: 8px;
-  position: relative;
-  z-index: 100;
-  padding-top: calc(env(safe-area-inset-top)) !important;
   
   h1 {
     color: #000000;
-    font-size: 28px;
+    font-size: 32px;
     font-weight: 700;
     margin: 0;
+    font-family: -apple-system, SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
   }
 }
 
@@ -392,16 +390,16 @@ body {
 
 /* Dashboard at top of screen with safe zones */
 .dashboard-top {
-  padding-top: calc(env(safe-area-inset-top) - 2px) !important;
+  padding-top: 0 !important;
   padding-left: 16px;
   padding-right: 16px;
   padding-bottom: calc(var(--f7-toolbar-height) + env(safe-area-inset-bottom) + 20px) !important;
 }
 
 .dashboard-title {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   padding-left: 8px;
-  padding-top: 0;
+  padding-top: calc(env(safe-area-inset-top) + 12px);
   
   h1 {
     color: #000000;
@@ -424,6 +422,27 @@ body {
   -webkit-overflow-scrolling: touch;
   position: relative;
   z-index: 1;
+  padding-top: calc(env(safe-area-inset-top)); /* Default padding for pages without back button */
+  padding-bottom: calc(var(--f7-toolbar-height) + env(safe-area-inset-bottom) + 20px) !important;
+}
+
+/* Pages with back button need extra padding */
+.page[data-name="history"],
+.page[data-name="profile"],
+.page[data-name="measurements"],
+.page[data-name="settings"],
+.page[data-name="connect"] {
+  .activity-content {
+    padding-top: calc(env(safe-area-inset-top) + 24px); /* Add navbar height for pages with back button */
+  }
+}
+
+/* Dashboard and Start Workout pages */
+.page[data-name="home"],
+.page[data-name="start"] {
+  .activity-content {
+    padding-top: calc(env(safe-area-inset-top)); /* Consistent padding for main pages */
+  }
 }
 
 /* Simplified Glass Cards for Visibility */
@@ -856,13 +875,13 @@ body {
 
 /* Profile Card */
 .profile-card {
-  margin-bottom: 12px;
+  margin-bottom: 20px;
   min-height: auto;
   
   .profile-content {
     display: flex;
     align-items: center;
-    padding: 6px;
+    padding: 16px;
     
     .profile-avatar {
       margin-right: 16px;
@@ -1220,16 +1239,14 @@ body {
 
 /* Mobile responsiveness for Dashboard */
 @media (max-width: 480px) {
-  .dashboard-top {
-    padding-top: calc(env(safe-area-inset-top) + 12px) !important;
-    padding-left: 12px;
-    padding-right: 12px;
+  .activity-content {
+    padding: 16px 12px;
+    padding-top: calc(env(safe-area-inset-top) + 44px); /* Added navbar height */
+    gap: 16px;
   }
   
-  .dashboard-title,
-  .connect-title {
-    margin-bottom: 20px;
-    padding-left: 4px;
+  .page-title {
+    margin-bottom: 16px;
     
     h1 {
       font-size: 28px;

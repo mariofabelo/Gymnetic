@@ -142,7 +142,7 @@ const CreateTemplatePage = ({ editTemplate }) => {
 
   return (
     <Page name="create-template" className="activity-page">
-      <Navbar title="Create Template" backLink="Back" />
+      <Navbar title={isEditing ? "Edit Template" : "Create Template"} backLink="Back" />
       <Block className="activity-content">
         {/* Template Name Section */}
         <div className="glass-card template-name-section">

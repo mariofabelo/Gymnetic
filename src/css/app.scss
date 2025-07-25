@@ -1232,6 +1232,32 @@ body {
             font-weight: 500;
           }
 
+          .exercise-sets-details {
+            margin: 8px 0 4px 0;
+
+            .set-details {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              margin: 3px 0;
+              padding: 4px 8px;
+              background: rgba(0, 122, 255, 0.08);
+              border-radius: 6px;
+              font-size: 12px;
+
+              .set-number {
+                font-weight: 600;
+                color: #007AFF;
+                min-width: 45px;
+              }
+
+              .set-info {
+                color: #333;
+                font-weight: 500;
+              }
+            }
+          }
+
           .exercise-notes {
             margin: 0;
             font-size: 13px;

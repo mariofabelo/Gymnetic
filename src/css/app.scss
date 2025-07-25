@@ -998,8 +998,8 @@ body {
   background: white;
   border-radius: 16px;
   width: 100%;
-  max-width: 600px;
-  max-height: 85vh;
+  max-width: 500px;
+  max-height: calc(100vh - 180px);
   display: flex;
   flex-direction: column;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);

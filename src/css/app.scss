@@ -700,19 +700,18 @@ body {
 
             .sets-table-header {
               display: grid;
-              grid-template-columns: 40px 1fr 1fr 40px;
+              grid-template-columns: 60px 1fr 1fr;
               gap: 8px;
-              padding: 8px 12px;
+              padding: 12px 16px;
               background: #007AFF;
               color: white;
               border-radius: 8px 8px 0 0;
-              font-size: 13px;
+              font-size: 14px;
               font-weight: 600;
 
               .header-set,
               .header-weight,
-              .header-reps,
-              .header-actions {
+              .header-reps {
                 text-align: center;
               }
             }

@@ -275,7 +275,6 @@ const CreateTemplatePage = ({ editTemplate }) => {
                           <div className="header-set">Set</div>
                           <div className="header-weight">kg</div>
                           <div className="header-reps">Reps</div>
-                          <div className="header-actions"></div>
                         </div>
 
                         <div className="sets-table-body">
@@ -284,7 +283,8 @@ const CreateTemplatePage = ({ editTemplate }) => {
                               <div className="set-number">{setIndex + 1}</div>
                               <div className="set-weight">
                                 <input
-                                  type="number"
+                                  type="text"
+                                  inputMode="decimal"
                                   placeholder="kg"
                                   value={set.weight}
                                   onChange={(e) => handleSetChange(exercise.id, set.id, 'weight', e.target.value)}
@@ -293,26 +293,29 @@ const CreateTemplatePage = ({ editTemplate }) => {
                               </div>
                               <div className="set-reps">
                                 <input
-                                  type="number"
+                                  type="text"
+                                  inputMode="numeric"
                                   placeholder="reps"
                                   value={set.reps}
                                   onChange={(e) => handleSetChange(exercise.id, set.id, 'reps', e.target.value)}
                                   className="set-input"
                                 />
                               </div>
-                              <div className="set-actions">
-                                {exercise.sets.length > 1 && (
-                                  <Button
-                                    className="remove-set-btn"
-                                    onClick={() => handleRemoveSet(exercise.id, set.id)}
-                                  >
-                                    ×
-                                  </Button>
-                                )}
-                              </div>
                             </div>
                           ))}
                         </div>
+                      </div>
+
+                      {/* Set Management Actions */}
+                      <div className="set-actions-row">
+                        {exercise.sets.length > 1 && (
+                          <Button
+                            className="remove-last-set-btn"
+                            onClick={() => handleRemoveSet(exercise.id, exercise.sets[exercise.sets.length - 1].id)}
+                          >
+                            - Remove Last Set
+                          </Button>
+                        )}
                       </div>
 
                       <Button

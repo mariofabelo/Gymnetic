@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Page, Navbar, Block, Link, f7 } from 'framework7-react';
+import { Page, Navbar, Block, Link, f7, Button, List, ListItem, Popup } from 'framework7-react';
 import store from '../js/store';
 
 const StartPage = () => {
   const [templates, setTemplates] = useState([]);
+  const [selectedTemplate, setSelectedTemplate] = useState(null);
+  const [showTemplateDetails, setShowTemplateDetails] = useState(false);
 
   const updateTemplates = () => {
     const workoutTemplates = store.getters.workoutTemplates.value;

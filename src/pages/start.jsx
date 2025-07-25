@@ -5,23 +5,20 @@ import store from '../js/store';
 const StartPage = () => {
   const [templates, setTemplates] = useState([]);
 
-  useEffect(() => {
-    // Get templates from store
-    const updateTemplates = () => {
-      const workoutTemplates = store.getters.workoutTemplates.value;
-      setTemplates(workoutTemplates);
-    };
+  const updateTemplates = () => {
+    const workoutTemplates = store.getters.workoutTemplates.value;
+    setTemplates(workoutTemplates);
+  };
 
+  useEffect(() => {
     // Initial load
     updateTemplates();
-
-    // Listen for store updates by checking periodically
-    const interval = setInterval(updateTemplates, 100);
-
-    return () => {
-      clearInterval(interval);
-    };
   }, []);
+
+  // Refresh templates when page becomes visible (e.g., when navigating back)
+  const onPageBeforeIn = () => {
+    updateTemplates();
+  };
 
   const handleStartEmptyWorkout = () => {
     // TODO: Navigate to workout session or implement empty workout logic

@@ -32,8 +32,31 @@ const StartPage = () => {
       // Navigate to create template page
       f7.views.current.router.navigate('/create-template/');
     } else {
-      // TODO: Navigate to workout session with template or implement template logic
-      console.log(`Starting ${templateName} template...`);
+      // Show template details popup
+      const template = templates.find(t => t.id === templateId);
+      if (template) {
+        setSelectedTemplate(template);
+        setShowTemplateDetails(true);
+      }
+    }
+  };
+
+  const handleStartWorkout = () => {
+    if (selectedTemplate) {
+      // TODO: Navigate to workout session with template
+      console.log(`Starting ${selectedTemplate.name} workout...`);
+      setShowTemplateDetails(false);
+    }
+  };
+
+  const handleEditTemplate = () => {
+    if (selectedTemplate) {
+      // TODO: Navigate to edit template page with template data
+      console.log(`Editing ${selectedTemplate.name} template...`);
+      setShowTemplateDetails(false);
+      f7.views.current.router.navigate('/create-template/', {
+        props: { editTemplate: selectedTemplate }
+      });
     }
   };
 

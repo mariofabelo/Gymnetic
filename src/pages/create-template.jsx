@@ -213,12 +213,12 @@ const CreateTemplatePage = ({ editTemplate }) => {
 
         {/* Save Template Button */}
         <div className="template-actions">
-          <Button 
+          <Button
             className="save-template-btn"
             onClick={handleSaveTemplate}
             disabled={!templateName.trim() || exercises.length === 0}
           >
-            Save Template
+            {isEditing ? "Update Template" : "Save Template"}
           </Button>
         </div>
 

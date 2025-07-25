@@ -90,6 +90,14 @@ const store = createStore({
       };
       state.workoutTemplates = [...state.workoutTemplates, newTemplate];
     },
+    updateWorkoutTemplate({ state }, updatedTemplate) {
+      const index = state.workoutTemplates.findIndex(template => template.id === updatedTemplate.id);
+      if (index !== -1) {
+        state.workoutTemplates[index] = updatedTemplate;
+        // Trigger reactivity by creating new array
+        state.workoutTemplates = [...state.workoutTemplates];
+      }
+    },
     removeWorkoutTemplate({ state }, templateId) {
       state.workoutTemplates = state.workoutTemplates.filter(template => template.id !== templateId);
     }

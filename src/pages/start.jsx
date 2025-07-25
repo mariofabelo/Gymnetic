@@ -159,9 +159,9 @@ const StartPage = () => {
                                 <span className="set-number">Set {setIndex + 1}:</span>
                                 <span className="set-info">
                                   {set.weight && set.reps
-                                    ? `${set.weight} lbs × ${set.reps} reps`
+                                    ? `${set.weight} kg × ${set.reps} reps`
                                     : set.weight
-                                      ? `${set.weight} lbs`
+                                      ? `${set.weight} kg`
                                       : set.reps
                                         ? `${set.reps} reps`
                                         : 'Not configured'

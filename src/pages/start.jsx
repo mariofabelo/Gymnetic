@@ -23,8 +23,8 @@ const StartPage = () => {
   };
 
   const handleStartEmptyWorkout = () => {
-    // TODO: Navigate to workout session or implement empty workout logic
-    console.log('Starting empty workout...');
+    // Navigate to workout session page
+    f7.views.current.router.navigate('/workout-session/');
   };
 
   const handleTemplateSelect = (templateName, templateId) => {

@@ -2499,28 +2499,14 @@ body {
 }
 
 /* Workout Session Page Styles */
-.workout-session-page {
-  background: #ffffff !important;
-
-  .page-content {
-    padding: 0 !important;
-  }
-}
-
 .workout-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: calc(env(safe-area-inset-top) + 20px) 24px 20px 24px;
-  background: #ffffff;
+  align-items: flex-start;
+  margin-bottom: 20px;
 
-  .workout-title {
-    color: #000;
-    font-family: -apple-system, SF UI Display, SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 36px;
-    font-weight: 400;
-    margin: 0;
-    line-height: 1.1;
+  .page-title {
+    flex: 1;
   }
 
   .settings-btn {
@@ -2537,6 +2523,7 @@ body {
     height: 38px;
     border-radius: 19px;
     transition: background-color 0.2s ease;
+    margin-top: 4px;
 
     &:hover {
       background: rgba(0, 0, 0, 0.05);

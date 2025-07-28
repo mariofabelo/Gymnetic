@@ -61,6 +61,10 @@ var routes = [
     component: CreateTemplatePage,
   },
   {
+    path: '/workout-session/',
+    component: WorkoutSessionPage,
+  },
+  {
     path: '/dynamic-route/blog/:blogId/post/:postId/',
     component: DynamicRoutePage,
   },

@@ -43,9 +43,11 @@ const StartPage = () => {
 
   const handleStartWorkout = () => {
     if (selectedTemplate) {
-      // TODO: Navigate to workout session with template
-      console.log(`Starting ${selectedTemplate.name} workout...`);
+      // Navigate to workout session page with template data
       setShowTemplateDetails(false);
+      f7.views.current.router.navigate('/workout-session/', {
+        props: { template: selectedTemplate }
+      });
     }
   };
 

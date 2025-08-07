@@ -1909,12 +1909,29 @@ body {
     padding-top: calc(env(safe-area-inset-top) + 44px); /* Added navbar height */
     gap: 16px;
   }
-  
+
   .page-title {
     margin-bottom: 16px;
-    
+
     h1 {
       font-size: 28px;
+    }
+  }
+
+  .more-options {
+    gap: 12px;
+    max-width: 95%;
+  }
+
+  .more-option-card {
+    min-height: 70px;
+
+    .card-content.centered {
+      min-height: 50px;
+
+      h3 {
+        font-size: 15px;
+      }
     }
   }
   

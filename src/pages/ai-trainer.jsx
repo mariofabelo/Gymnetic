@@ -81,7 +81,7 @@ const AITrainerPage = () => {
           </div>
         </div>
 
-        <div className="selected-mood-info">
+        <div className="selected-mood-info" key={selectedMood}>
           <h4>Selected: {selectedMood === 'default' ? 'Default' : selectedMood === 'gentle' ? 'Gentle and Supporting' : 'Drill Sergeant'}</h4>
         </div>
       </Block>

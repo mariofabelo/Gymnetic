@@ -10,6 +10,7 @@ import ProfilePage from '../pages/profile.jsx';
 import MeasurementsPage from '../pages/measurements.jsx';
 import CreateTemplatePage from '../pages/create-template.jsx';
 import WorkoutSessionPage from '../pages/workout-session.jsx';
+import AITrainerPage from '../pages/ai-trainer.jsx';
 
 import DynamicRoutePage from '../pages/dynamic-route.jsx';
 import RequestAndLoad from '../pages/request-and-load.jsx';

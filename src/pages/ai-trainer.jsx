@@ -5,6 +5,7 @@ import {
   Block,
   Link,
 } from 'framework7-react';
+import '../css/ai-trainer.css';
 
 const AITrainerPage = () => {
   const [selectedMood, setSelectedMood] = useState('default');

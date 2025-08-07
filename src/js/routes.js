@@ -66,6 +66,10 @@ var routes = [
     component: WorkoutSessionPage,
   },
   {
+    path: '/ai-trainer/',
+    component: AITrainerPage,
+  },
+  {
     path: '/dynamic-route/blog/:blogId/post/:postId/',
     component: DynamicRoutePage,
   },

@@ -1,0 +1,159 @@
+.ai-trainer-options {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.ai-trainer-option {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.ai-trainer-option:hover {
+  transform: translateY(-2px);
+}
+
+.ai-trainer-option.selected {
+  border-color: #007AFF;
+  background: rgba(0, 122, 255, 0.1);
+}
+
+.mood-icon {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.ai-trainer-option .card-content h3 {
+  margin: 10px 0 5px 0;
+  color: var(--f7-text-color);
+}
+
+.ai-trainer-option .card-content p {
+  margin: 0;
+  opacity: 0.7;
+  font-size: 14px;
+}
+
+.selected-mood-info {
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+}
+
+.selected-mood-info h4 {
+  margin: 0;
+  color: #007AFF;
+}
+
+/* Water Wave Animation */
+.water-wave-animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.wave-ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid rgba(0, 150, 255, 0.6);
+  border-radius: 50%;
+  animation: waterWave 2s ease-out;
+}
+
+.wave-1 {
+  animation-delay: 0s;
+}
+
+.wave-2 {
+  animation-delay: 0.3s;
+}
+
+.wave-3 {
+  animation-delay: 0.6s;
+}
+
+@keyframes waterWave {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+  }
+}
+
+/* Fire Animation */
+.fire-animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.fire-particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #ff4500, #ff8c00);
+  border-radius: 50%;
+  animation: fireEmanate 2s ease-out;
+}
+
+.fire-1 {
+  animation-delay: 0s;
+  top: -20px;
+  left: 0px;
+}
+
+.fire-2 {
+  animation-delay: 0.2s;
+  top: -15px;
+  left: 15px;
+}
+
+.fire-3 {
+  animation-delay: 0.4s;
+  top: -10px;
+  left: -15px;
+}
+
+.fire-4 {
+  animation-delay: 0.6s;
+  top: -25px;
+  left: 8px;
+}
+
+.fire-5 {
+  animation-delay: 0.8s;
+  top: -18px;
+  left: -8px;
+}
+
+@keyframes fireEmanate {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(0.5) translateY(-50px);
+    opacity: 0;
+  }
+}

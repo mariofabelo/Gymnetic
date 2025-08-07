@@ -22,20 +22,24 @@
   background: rgba(0, 122, 255, 0.1);
 }
 
-.mood-icon {
-  font-size: 48px;
-  margin-bottom: 10px;
+.ai-trainer-option .card-content {
+  text-align: center;
 }
 
-.ai-trainer-option .card-content h3 {
+.mood-title-bold {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
   margin: 10px 0 5px 0;
   color: var(--f7-text-color);
 }
 
-.ai-trainer-option .card-content p {
+.mood-subtitle-regular {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
   margin: 0;
   opacity: 0.7;
-  font-size: 14px;
 }
 
 .selected-mood-info {

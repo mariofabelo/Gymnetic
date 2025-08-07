@@ -1858,6 +1858,50 @@ body {
   }
 }
 
+/* More Page Styles */
+.more-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 85%;
+  margin: 0 auto;
+}
+
+.more-option-card {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  min-height: 80px;
+
+  .card-content.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 60px;
+
+    h3 {
+      color: #000000;
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0;
+      text-align: center;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 8px 30px rgba(0, 0, 0, 0.12),
+      0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
 /* Mobile responsiveness for Dashboard */
 @media (max-width: 480px) {
   .activity-content {

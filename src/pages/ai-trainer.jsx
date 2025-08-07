@@ -32,26 +32,24 @@ const AITrainerPage = () => {
 
         <div className="ai-trainer-options">
           {/* Default Option */}
-          <div 
+          <div
             className={`glass-card ai-trainer-option ${selectedMood === 'default' ? 'selected' : ''}`}
             onClick={() => handleMoodSelect('default')}
           >
             <div className="card-content centered">
-              <div className="mood-icon">🤖</div>
-              <h3>Default</h3>
-              <p>Neutral and balanced</p>
+              <h3 className="mood-title-bold">Default</h3>
+              <p className="mood-subtitle-regular">Neutral and balanced</p>
             </div>
           </div>
 
           {/* Gentle and Supporting Option */}
-          <div 
+          <div
             className={`glass-card ai-trainer-option ${selectedMood === 'gentle' ? 'selected' : ''}`}
             onClick={() => handleMoodSelect('gentle')}
           >
             <div className="card-content centered">
-              <div className="mood-icon">🌊</div>
-              <h3>Gentle and Supporting</h3>
-              <p>Encouraging and patient</p>
+              <h3 className="mood-title-bold">Gentle and Supporting</h3>
+              <p className="mood-subtitle-regular">Encouraging and patient</p>
             </div>
             {showAnimation === 'gentle' && (
               <div className="water-wave-animation">
@@ -63,14 +61,13 @@ const AITrainerPage = () => {
           </div>
 
           {/* Drill Sergeant Option */}
-          <div 
+          <div
             className={`glass-card ai-trainer-option ${selectedMood === 'sergeant' ? 'selected' : ''}`}
             onClick={() => handleMoodSelect('sergeant')}
           >
             <div className="card-content centered">
-              <div className="mood-icon">🔥</div>
-              <h3>Drill Sergeant</h3>
-              <p>Intense and motivating</p>
+              <h3 className="mood-title-bold">Drill Sergeant</h3>
+              <p className="mood-subtitle-regular">Intense and motivating</p>
             </div>
             {showAnimation === 'sergeant' && (
               <div className="fire-animation">

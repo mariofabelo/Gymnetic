@@ -49,16 +49,29 @@
 }
 
 .selected-mood-info {
-  text-align: center;
-  margin-top: 30px;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  margin: 30px auto 0;
+  width: fit-content;
+  max-width: 70%;
 }
 
 .selected-mood-info h4 {
   margin: 0;
+  padding: 12px 24px;
   color: #007AFF;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  text-align: center;
+  box-shadow:
+    0 8px 32px 0 rgba(31, 38, 135, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 /* Water Wave Animation */

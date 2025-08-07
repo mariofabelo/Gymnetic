@@ -31,6 +31,13 @@ const MorePage = () => (
           </div>
         </Link>
 
+        {/* Customise AI Trainer Button */}
+        <Link href="/ai-trainer/" className="glass-card more-option-card">
+          <div className="card-content centered">
+            <h3>Customise AI Trainer</h3>
+          </div>
+        </Link>
+
         {/* Privacy Policy Button */}
         <div className="glass-card more-option-card">
           <div className="card-content centered">

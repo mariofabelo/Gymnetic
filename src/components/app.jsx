@@ -114,8 +114,8 @@ const MyApp = () => {
           {/* Start View */}
           <View id="view-start" name="start" tab url="/start/" />
 
-          {/* Settings View */}
-          <View id="view-settings" name="settings" tab url="/settings/" />
+          {/* More View */}
+          <View id="view-settings" name="settings" tab url="/more/" />
 
         </Views>
 

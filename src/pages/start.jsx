@@ -23,8 +23,8 @@ const StartPage = () => {
   };
 
   const handleStartEmptyWorkout = () => {
-    // TODO: Navigate to workout session or implement empty workout logic
-    console.log('Starting empty workout...');
+    // Navigate to workout session page
+    f7.views.current.router.navigate('/workout-session/');
   };
 
   const handleTemplateSelect = (templateName, templateId) => {
@@ -43,9 +43,11 @@ const StartPage = () => {
 
   const handleStartWorkout = () => {
     if (selectedTemplate) {
-      // TODO: Navigate to workout session with template
-      console.log(`Starting ${selectedTemplate.name} workout...`);
+      // Navigate to workout session page with template data
       setShowTemplateDetails(false);
+      f7.views.current.router.navigate('/workout-session/', {
+        props: { template: selectedTemplate }
+      });
     }
   };
 
@@ -74,7 +76,7 @@ const StartPage = () => {
           <div className="workout-option-content">
             <div className="workout-icon">💪</div>
             <h3>Empty Workout</h3>
-            <p>Begin a workout and add exercises as you go</p>
+            <p>Add exercises as you go</p>
           </div>
         </div>
 

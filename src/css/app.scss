@@ -439,9 +439,10 @@ body {
   }
 }
 
-/* Dashboard and Start Workout pages */
+/* Dashboard, Start Workout, and More pages */
 .page[data-name="home"],
-.page[data-name="start"] {
+.page[data-name="start"],
+.page[data-name="more"] {
   .activity-content {
     padding-top: calc(env(safe-area-inset-top)); /* Consistent padding for main pages */
   }
@@ -1858,6 +1859,50 @@ body {
   }
 }
 
+/* More Page Styles */
+.more-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 85%;
+  margin: 0 auto;
+}
+
+.more-option-card {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  min-height: 80px;
+
+  .card-content.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 60px;
+
+    h3 {
+      color: #000000;
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0;
+      text-align: center;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 8px 30px rgba(0, 0, 0, 0.12),
+      0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
 /* Mobile responsiveness for Dashboard */
 @media (max-width: 480px) {
   .activity-content {
@@ -1865,12 +1910,29 @@ body {
     padding-top: calc(env(safe-area-inset-top) + 44px); /* Added navbar height */
     gap: 16px;
   }
-  
+
   .page-title {
     margin-bottom: 16px;
-    
+
     h1 {
       font-size: 28px;
+    }
+  }
+
+  .more-options {
+    gap: 12px;
+    max-width: 95%;
+  }
+
+  .more-option-card {
+    min-height: 70px;
+
+    .card-content.centered {
+      min-height: 50px;
+
+      h3 {
+        font-size: 15px;
+      }
     }
   }
   
@@ -2246,7 +2308,7 @@ body {
 /* Start Workout Page Styles */
 .workout-start-card {
   cursor: pointer;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   transition: all 0.3s ease;
 
   &:hover {
@@ -2263,27 +2325,27 @@ body {
 
 .workout-option-content {
   text-align: center;
-  padding: 8px;
+  padding: 16px;
 
   .workout-icon {
-    font-size: 48px;
-    margin-bottom: 16px;
+    font-size: 40px;
+    margin-bottom: 12px;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
   }
 
   h3 {
     color: #000000;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
-    margin: 0 0 12px 0;
+    margin: 0 0 8px 0;
   }
 
   p {
     color: #666666;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     margin: 0;
-    line-height: 1.4;
+    line-height: 1.3;
   }
 }
 
@@ -2494,6 +2556,243 @@ body {
         font-size: 13px;
         padding: 5px 10px;
       }
+    }
+  }
+}
+
+/* Workout Session Page Styles */
+.workout-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+
+  .page-title {
+    flex: 1;
+  }
+
+  .settings-btn {
+    background: transparent;
+    border: none;
+    padding: 8px;
+    margin: 0;
+    color: #000;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 19px;
+    transition: background-color 0.2s ease;
+    margin-top: 4px;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.workout-session-content {
+  padding: 0 24px;
+  background: #ffffff;
+  min-height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+}
+
+.voice-visualization-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-height: 400px;
+}
+
+.voice-circle {
+  position: relative;
+  width: 179px;
+  height: 179px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: all 0.3s ease;
+
+  .voice-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00E5FF 0%, #D5FFD6 100%);
+    opacity: 0.84;
+    transition: all 0.3s ease;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+    }
+  }
+
+  .microphone-btn {
+    position: relative;
+    z-index: 2;
+    background: #000;
+    color: white;
+    border: none;
+    width: 52px;
+    height: 52px;
+    border-radius: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  &.listening {
+    animation: voicePulse 2s ease-in-out infinite;
+
+    .voice-gradient {
+      animation: gradientShift 3s ease-in-out infinite;
+    }
+  }
+}
+
+@keyframes voicePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background: linear-gradient(135deg, #00E5FF 0%, #D5FFD6 100%);
+  }
+  33% {
+    background: linear-gradient(135deg, #00E1FF 0%, #7F9FFF 50%, #D5FFD6 100%);
+  }
+  66% {
+    background: linear-gradient(135deg, #7F9FFF 0%, #00E5FF 50%, #D5FFD6 100%);
+  }
+}
+
+.end-workout-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: calc(var(--f7-toolbar-height) + env(safe-area-inset-bottom) + 40px);
+}
+
+.end-workout-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  svg {
+    width: 56px;
+    height: 56px;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+  }
+}
+
+/* Workout Session Mobile responsive adjustments */
+@media (max-width: 480px) {
+  .workout-header {
+    padding: calc(env(safe-area-inset-top) + 16px) 20px 16px 20px;
+
+    .workout-title {
+      font-size: 32px;
+    }
+
+    .settings-btn {
+      width: 36px;
+      height: 36px;
+
+      svg {
+        width: 22px;
+        height: 22px;
+      }
+    }
+  }
+
+  .workout-session-content {
+    padding: 0 20px;
+    gap: 60px;
+    min-height: calc(100vh - 180px);
+  }
+
+  .voice-visualization-container {
+    min-height: 300px;
+  }
+
+  .voice-circle {
+    width: 160px;
+    height: 160px;
+
+    .microphone-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 24px;
+
+      svg {
+        width: 26px;
+        height: 26px;
+      }
+    }
+  }
+
+  .end-workout-btn {
+    svg {
+      width: 50px;
+      height: 50px;
     }
   }
 }

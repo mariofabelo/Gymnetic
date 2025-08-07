@@ -439,9 +439,10 @@ body {
   }
 }
 
-/* Dashboard and Start Workout pages */
+/* Dashboard, Start Workout, and More pages */
 .page[data-name="home"],
-.page[data-name="start"] {
+.page[data-name="start"],
+.page[data-name="more"] {
   .activity-content {
     padding-top: calc(env(safe-area-inset-top)); /* Consistent padding for main pages */
   }

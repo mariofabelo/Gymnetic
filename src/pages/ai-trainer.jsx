@@ -27,7 +27,7 @@ const AITrainerPage = () => {
       
       <Block className="activity-content">
         <div className="page-title">
-          <h1>Choose the mood for your AI Trainer</h1>
+          <h1>Choose the mood</h1>
         </div>
 
         <div className="ai-trainer-options">

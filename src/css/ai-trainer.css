@@ -116,8 +116,8 @@
 
 .fire-particle {
   position: absolute;
-  width: 12px;
-  height: 24px;
+  width: 18px;
+  height: 36px;
   background: linear-gradient(to top,
     #ff4500 0%,
     #ff6500 25%,
@@ -131,42 +131,42 @@
 
 .fire-1 {
   animation-delay: 0s;
-  top: -20px;
-  left: -2px;
-  width: 10px;
-  height: 20px;
+  top: -30px;
+  left: -3px;
+  width: 15px;
+  height: 30px;
 }
 
 .fire-2 {
   animation-delay: 0.1s;
-  top: -15px;
-  left: 8px;
-  width: 8px;
-  height: 18px;
+  top: -25px;
+  left: 12px;
+  width: 12px;
+  height: 27px;
 }
 
 .fire-3 {
   animation-delay: 0.2s;
-  top: -10px;
-  left: -8px;
-  width: 9px;
-  height: 16px;
+  top: -20px;
+  left: -12px;
+  width: 14px;
+  height: 24px;
 }
 
 .fire-4 {
   animation-delay: 0.3s;
-  top: -25px;
-  left: 3px;
-  width: 11px;
-  height: 22px;
+  top: -35px;
+  left: 5px;
+  width: 16px;
+  height: 33px;
 }
 
 .fire-5 {
   animation-delay: 0.4s;
-  top: -18px;
-  left: -5px;
-  width: 7px;
-  height: 15px;
+  top: -28px;
+  left: -8px;
+  width: 11px;
+  height: 22px;
 }
 
 @keyframes fireFlame {

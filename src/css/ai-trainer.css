@@ -23,14 +23,20 @@
 }
 
 .ai-trainer-option .card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  min-height: 80px;
+  padding: 20px;
 }
 
 .mood-title-bold {
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
   font-weight: 700;
   font-size: 18px;
-  margin: 10px 0 5px 0;
+  margin: 0 0 8px 0;
   color: var(--f7-text-color);
 }
 

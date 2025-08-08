@@ -3357,9 +3357,339 @@ body {
 @media (max-width: 480px) {
   .page-title, .connect-title {
     margin-bottom: 16px;
-    
+
     h1 {
       font-size: 32px; /* Consistent mobile size */
+    }
+  }
+}
+
+/* Profile Page Styles */
+.profile-header-card {
+  margin-bottom: 24px;
+
+  .profile-header-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .profile-picture-container {
+      flex-shrink: 0;
+    }
+
+    .profile-header-info {
+      flex: 1;
+    }
+  }
+}
+
+.quick-actions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+  max-width: 85%;
+  margin: 0 auto;
+
+  .quick-action-card {
+    min-height: 120px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.15),
+        0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .quick-action-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+
+      .action-icon {
+        font-size: 32px;
+        margin-bottom: 8px;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+      }
+
+      h4 {
+        font-size: 14px;
+        font-weight: 600;
+        color: #000;
+        margin: 0;
+        line-height: 1.2;
+      }
+    }
+  }
+}
+
+.personal-info-card {
+  .personal-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      .info-label {
+        font-size: 14px;
+        color: #666;
+        font-weight: 500;
+        margin-bottom: 4px;
+      }
+
+      .info-value {
+        font-size: 18px;
+        font-weight: 700;
+        color: #000;
+      }
+    }
+  }
+}
+
+.progress-summary-card {
+  .progress-stats {
+    margin-bottom: 20px;
+
+    .progress-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .progress-icon {
+        font-size: 20px;
+        flex-shrink: 0;
+      }
+
+      .progress-text {
+        font-size: 15px;
+        color: #333;
+        line-height: 1.4;
+
+        strong {
+          color: #007AFF;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  .progress-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+    .metric-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      .metric-label {
+        font-size: 14px;
+        color: #666;
+        font-weight: 500;
+        margin-bottom: 4px;
+      }
+
+      .metric-value {
+        font-size: 20px;
+        font-weight: 700;
+        color: #007AFF;
+      }
+    }
+  }
+}
+
+.social-card {
+  .social-stats {
+    margin-bottom: 16px;
+
+    .social-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .social-label {
+        font-size: 15px;
+        color: #333;
+        font-weight: 500;
+      }
+
+      .social-value {
+        font-size: 15px;
+        color: #007AFF;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.customization-options,
+.support-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 85%;
+  margin: 0 auto;
+}
+
+.customization-card,
+.support-card {
+  min-height: 60px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 8px 30px rgba(0, 0, 0, 0.12),
+      0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  .customization-content,
+  .support-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 100%;
+
+    .customization-icon,
+    .support-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .customization-text,
+    .support-text {
+      flex: 1;
+      font-size: 16px;
+      font-weight: 500;
+      color: #333;
+    }
+  }
+}
+
+.logout-card {
+  .support-content {
+    .support-icon {
+      opacity: 0.8;
+    }
+  }
+}
+
+/* Responsive adjustments for Profile */
+@media (max-width: 480px) {
+  .profile-header-card {
+    .profile-header-content {
+      flex-direction: column;
+      text-align: center;
+      gap: 16px;
+    }
+  }
+
+  .quick-actions-grid {
+    max-width: 95%;
+    gap: 12px;
+
+    .quick-action-card {
+      min-height: 100px;
+
+      .quick-action-content {
+        .action-icon {
+          font-size: 28px;
+          margin-bottom: 6px;
+        }
+
+        h4 {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+
+  .personal-info-card {
+    .personal-info-grid {
+      gap: 12px;
+
+      .info-item {
+        .info-value {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  .progress-summary-card {
+    .progress-stats {
+      .progress-item {
+        gap: 10px;
+
+        .progress-icon {
+          font-size: 18px;
+        }
+
+        .progress-text {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .progress-metrics {
+      gap: 16px;
+
+      .metric-item {
+        .metric-value {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  .customization-options,
+  .support-options {
+    max-width: 95%;
+  }
+
+  .customization-card,
+  .support-card {
+    min-height: 56px;
+
+    .customization-content,
+    .support-content {
+      gap: 12px;
+
+      .customization-icon,
+      .support-icon {
+        font-size: 18px;
+      }
+
+      .customization-text,
+      .support-text {
+        font-size: 15px;
+      }
     }
   }
 }

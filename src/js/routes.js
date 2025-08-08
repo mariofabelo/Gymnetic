@@ -11,6 +11,7 @@ import MeasurementsPage from '../pages/measurements.jsx';
 import CreateTemplatePage from '../pages/create-template.jsx';
 import WorkoutSessionPage from '../pages/workout-session.jsx';
 import AITrainerPage from '../pages/ai-trainer.jsx';
+import StatsPage from '../pages/stats.jsx';
 
 import DynamicRoutePage from '../pages/dynamic-route.jsx';
 import RequestAndLoad from '../pages/request-and-load.jsx';
@@ -68,6 +69,10 @@ var routes = [
   {
     path: '/ai-trainer/',
     component: AITrainerPage,
+  },
+  {
+    path: '/stats/',
+    component: StatsPage,
   },
   {
     path: '/dynamic-route/blog/:blogId/post/:postId/',

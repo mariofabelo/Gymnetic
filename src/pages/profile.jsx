@@ -111,10 +111,8 @@ const ProfilePage = () => {
         </div>
 
         {/* SECTION 1: QUICK ACTIONS */}
-        <div className="section-title">
-          <h3 style={{fontSize: '18px', fontWeight: '600', color: '#000', margin: '24px 0 16px 0'}}>
-            Quick Actions
-          </h3>
+        <div className="profile-section-title">
+          <h3>Quick Actions</h3>
         </div>
         
         <div className="quick-actions-grid">
@@ -148,10 +146,8 @@ const ProfilePage = () => {
         </div>
 
         {/* SECTION 2: PERSONAL INFO SNAPSHOT */}
-        <div className="section-title">
-          <h3 style={{fontSize: '18px', fontWeight: '600', color: '#000', margin: '32px 0 16px 0'}}>
-            Personal Info
-          </h3>
+        <div className="profile-section-title">
+          <h3>Personal Info</h3>
         </div>
         
         <div className="glass-card personal-info-card">
@@ -226,10 +222,8 @@ const ProfilePage = () => {
         </div>
 
         {/* SECTION 4: SOCIAL & COMPETITION */}
-        <div className="section-title">
-          <h3 style={{fontSize: '18px', fontWeight: '600', color: '#000', margin: '32px 0 16px 0'}}>
-            Social & Competition
-          </h3>
+        <div className="profile-section-title">
+          <h3>Social & Competition</h3>
         </div>
         
         <div className="glass-card social-card">
@@ -258,10 +252,8 @@ const ProfilePage = () => {
         </div>
 
         {/* SECTION 5: CUSTOMIZATION */}
-        <div className="section-title">
-          <h3 style={{fontSize: '18px', fontWeight: '600', color: '#000', margin: '32px 0 16px 0'}}>
-            Customization
-          </h3>
+        <div className="profile-section-title">
+          <h3>Customization</h3>
         </div>
         
         <div className="customization-options">
@@ -291,10 +283,8 @@ const ProfilePage = () => {
         </div>
 
         {/* SECTION 6: LOGOUT / SUPPORT */}
-        <div className="section-title">
-          <h3 style={{fontSize: '18px', fontWeight: '600', color: '#000', margin: '32px 0 16px 0'}}>
-            Support
-          </h3>
+        <div className="profile-section-title">
+          <h3>Support</h3>
         </div>
         
         <div className="support-options">

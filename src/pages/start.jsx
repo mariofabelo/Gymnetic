@@ -82,7 +82,7 @@ const StartPage = () => {
 
         {/* Templates Section */}
         <div className="templates-section">
-          <div className="section-header">
+          <div className="start-section-header">
             <h2>Workout Templates</h2>
             <p>Choose from pre-built workout routines</p>
           </div>

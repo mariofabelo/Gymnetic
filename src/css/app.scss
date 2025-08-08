@@ -1560,14 +1560,16 @@ body {
 /* Stats Card - Simplified with centered text */
 .stats-card {
   min-height: 160px;
-  
+  text-decoration: none;
+  color: inherit;
+
   .card-content.centered {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
     min-height: 140px;
-    
+
     h3 {
       color: #000000;
       font-size: 16px;

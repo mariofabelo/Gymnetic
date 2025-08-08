@@ -114,11 +114,11 @@ const HomePage = () => {
             </div>
           </Link>
 
-          <div className="glass-card stats-card">
+          <Link href="/stats/" className="glass-card stats-card">
             <div className="card-content centered">
               <h3>Stats</h3>
             </div>
-          </div>
+          </Link>
         </div>
       </Block>
     </Page>

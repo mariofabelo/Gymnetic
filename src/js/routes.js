@@ -71,6 +71,10 @@ var routes = [
     component: AITrainerPage,
   },
   {
+    path: '/stats/',
+    component: StatsPage,
+  },
+  {
     path: '/dynamic-route/blog/:blogId/post/:postId/',
     component: DynamicRoutePage,
   },

@@ -20,7 +20,7 @@ const HomePage = () => {
       <Block className="activity-content">
         {/* Dashboard Title */}
         <div className="page-title">
-          <h1>Dashboard</h1>
+          <h1>Home</h1>
         </div>
 
         {/* Profile Section */}

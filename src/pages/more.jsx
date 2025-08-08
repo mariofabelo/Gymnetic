@@ -18,11 +18,11 @@ const MorePage = () => (
       {/* More Options */}
       <div className="more-options">
         {/* Stats Button */}
-        <div className="glass-card more-option-card">
+        <Link href="/stats/" className="glass-card more-option-card">
           <div className="card-content centered">
             <h3>Stats</h3>
           </div>
-        </div>
+        </Link>
 
         {/* Connect Button */}
         <Link href="/connect/" className="glass-card more-option-card">

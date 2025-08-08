@@ -3642,6 +3642,28 @@ body {
 
 /* Responsive adjustments for Profile */
 @media (max-width: 480px) {
+  .profile-section-title {
+    margin-bottom: 12px;
+    padding-left: 4px;
+
+    h3 {
+      font-size: 20px;
+      margin: 20px 0 0 0;
+    }
+  }
+
+  .start-section-header {
+    margin-bottom: 20px;
+
+    h2 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 15px;
+    }
+  }
+
   .profile-header-card {
     .profile-header-content {
       flex-direction: column;

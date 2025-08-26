@@ -13,7 +13,7 @@ const ProfilePage = () => {
   
   // Mock user data - in real app this would come from state/API
   const userData = {
-    username: "Alex Johnson",
+    username: "Mario Fabelo",
     level: 12,
     xp: 3450,
     age: 29,
@@ -51,11 +51,7 @@ const ProfilePage = () => {
 
   return (
     <Page name="profile" className="activity-page">
-      <Navbar backLink="Back">
-        <Link slot="right" href="/settings/">
-          <i className="f7-icons" style={{fontSize: '22px'}}>gear</i>
-        </Link>
-      </Navbar>
+      <Navbar backLink="Back" />
       
       <Block className="activity-content">
         {/* HEADER - Profile Info with Level/XP */}
@@ -99,13 +95,13 @@ const ProfilePage = () => {
                 fontWeight: '700',
                 color: '#000',
                 margin: '0 0 4px 0'
-              }}>{userData.username}</h2>
+              }}>Mario Fabelo</h2>
               <p style={{
                 fontSize: '16px',
                 color: '#007AFF',
                 fontWeight: '600',
                 margin: '0'
-              }}>Level {userData.level} | XP: {userData.xp.toLocaleString()}</p>
+              }}>Joined 1st August 2025</p>
             </div>
           </div>
         </div>
@@ -257,7 +253,7 @@ const ProfilePage = () => {
         </div>
         
         <div className="customization-options">
-          <div className="glass-card customization-card" onClick={() => f7.dialog.alert('Voice Coach settings coming soon!')}>
+          <div className="glass-card customization-card" onClick={() => f7.views.main.router.navigate('/ai-trainer/') }>
             <div className="customization-content">
               <span className="customization-icon">🔊</span>
               <span className="customization-text">Voice Coach Settings</span>

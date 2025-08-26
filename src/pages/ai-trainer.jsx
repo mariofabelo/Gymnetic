@@ -23,7 +23,7 @@ const AITrainerPage = () => {
 
   return (
     <Page name="ai-trainer" className="activity-page">
-      <Navbar title="Customise AI Trainer" backLink="Back" />
+      <Navbar backLink="Back" />
       
       <Block className="activity-content">
         <div className="page-title">

@@ -433,18 +433,22 @@ body {
 .page[data-name="profile"],
 .page[data-name="measurements"],
 .page[data-name="settings"],
-.page[data-name="connect"] {
+.page[data-name="connect"],
+.page[data-name="create-template"],
+.page[data-name="ai-trainer"] {
   .activity-content {
     padding-top: calc(env(safe-area-inset-top) + 24px); /* Add navbar height for pages with back button */
   }
 }
 
-/* Dashboard, Start Workout, and More pages */
+/* Dashboard, Start Workout, More, and Workout Session pages */
 .page[data-name="home"],
 .page[data-name="start"],
-.page[data-name="more"] {
+.page[data-name="more"],
+.page[data-name="workout-session"] {
   .activity-content {
     padding-top: calc(env(safe-area-inset-top)); /* Consistent padding for main pages */
+    gap: 12px;
   }
 }
 
@@ -473,6 +477,83 @@ body {
     box-shadow: 
       0 8px 30px rgba(0, 0, 0, 0.12),
       0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+}
+
+/* Selected Glass Card style to match AI Trainer selected state */
+.selected-glass-card {
+  border: 2px solid #007AFF !important;
+  background: rgba(0, 122, 255, 0.1) !important;
+}
+
+/* Make glass-card clickable for Save action */
+.clickable-card {
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Compact glass card variant for small centered actions */
+.glass-card.compact {
+  max-width: max-content;
+  padding: 12px 18px;
+}
+
+.glass-card.compact .card-content.centered h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Measurements inputs refinements to match app styling */
+.measurements-list {
+  .item-input, .list-input {
+    --f7-list-border-color: rgba(0,0,0,0.06);
+  }
+
+  .item-input-wrap input,
+  .item-input-wrap input[type="number"],
+  .item-input-wrap input[type="text"] {
+    min-height: 44px;
+    padding: 12px 10px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 10px;
+    background: #fff;
+    box-sizing: border-box;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      appearance: none;
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    appearance: textfield;
+    -moz-appearance: textfield;
+
+    &:focus {
+      outline: none;
+      border-color: #007AFF;
+      background: rgba(0, 122, 255, 0.05);
+      box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+    }
+  }
+
+  .item-input .item-title {
+    font-weight: 700;
+    font-size: 16px;
+    color: #000;
+  }
+
+  /* Ensure different label class variants are styled */
+  .item-input .item-label,
+  .list .item-label {
+    font-weight: 700;
+    font-size: 16px;
+    color: #000;
+  }
+
+  /* Slight spacing between label and input for readability */
+  .item-input .item-input-wrap {
+    margin-top: 6px;
   }
 }
 
@@ -762,11 +843,13 @@ body {
                     /* Remove spinner buttons on webkit browsers */
                     &::-webkit-outer-spin-button,
                     &::-webkit-inner-spin-button {
+                      appearance: none;
                       -webkit-appearance: none;
                       margin: 0;
                     }
 
                     /* Remove spinner buttons on Firefox */
+                    appearance: textfield;
                     -moz-appearance: textfield;
 
                     &:focus {
@@ -883,10 +966,18 @@ body {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 13000;
+  z-index: 99999;
   padding: 20px;
   box-sizing: border-box;
   animation: modalBackdropFadeIn 0.3s ease-out;
+  /* Ensure it covers everything including navbar and tabbar */
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  /* Force full coverage */
+  min-width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
 .exercise-library-modal {
@@ -894,7 +985,8 @@ body {
   border-radius: 16px;
   width: 100%;
   max-width: 500px;
-  max-height: 80vh;
+  /* Ensure space above tab bar by accounting for toolbar height and safe area */
+  max-height: calc(100vh - (200px + var(--f7-toolbar-height) + env(safe-area-inset-bottom) + 20px));
   display: flex;
   flex-direction: column;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
@@ -903,6 +995,8 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   animation: modalSlideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* Ensure modal doesn't overlap with tabbar */
+  margin-bottom: calc(var(--f7-toolbar-height) + env(safe-area-inset-bottom) + 40px);
 
   .modal-header {
     display: flex;
@@ -1024,10 +1118,18 @@ body {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 13000;
+  z-index: 99999;
   padding: 20px;
   box-sizing: border-box;
   animation: modalBackdropFadeIn 0.3s ease-out;
+  /* Ensure it covers everything including navbar and tabbar */
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  /* Force full coverage */
+  min-width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
 .emoji-picker-modal {
@@ -1035,7 +1137,8 @@ body {
   border-radius: 16px;
   width: 100%;
   max-width: 400px;
-  max-height: 70vh;
+  /* Ensure space above tab bar by accounting for toolbar height and safe area */
+  max-height: calc(100vh - (200px + var(--f7-toolbar-height) + env(safe-area-inset-bottom) + 20px));
   display: flex;
   flex-direction: column;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
@@ -1044,6 +1147,8 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   animation: modalSlideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* Ensure modal doesn't overlap with tabbar */
+  margin-bottom: calc(var(--f7-toolbar-height) + env(safe-area-inset-bottom) + 40px);
 
   .modal-header {
     display: flex;
@@ -1127,10 +1232,18 @@ body {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 13000;
+  z-index: 99999;
   padding: 20px;
   box-sizing: border-box;
   animation: modalBackdropFadeIn 0.3s ease-out;
+  /* Ensure it covers everything including navbar and tabbar */
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  /* Force full coverage */
+  min-width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
 .template-details-modal {
@@ -1138,7 +1251,8 @@ body {
   border-radius: 16px;
   width: 100%;
   max-width: 500px;
-  max-height: calc(100vh - 180px);
+  /* Ensure space above tab bar by accounting for toolbar height and safe area */
+  max-height: calc(100vh - (180px + var(--f7-toolbar-height) + env(safe-area-inset-bottom) + 20px));
   display: flex;
   flex-direction: column;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
@@ -1147,6 +1261,8 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   animation: modalSlideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* Ensure modal doesn't overlap with tabbar */
+  margin-bottom: calc(var(--f7-toolbar-height) + env(safe-area-inset-bottom) + 30px);
 
   .modal-header {
     display: flex;
@@ -1349,7 +1465,8 @@ body {
   }
 
   .exercise-library-modal {
-    max-height: 85vh;
+    /* Ensure space above tab bar on mobile as well */
+    max-height: calc(100vh - (200px + var(--f7-toolbar-height) + env(safe-area-inset-bottom) + 20px));
     width: calc(100% - 20px);
 
     .modal-header {
@@ -1362,7 +1479,8 @@ body {
   }
 
   .emoji-picker-modal {
-    max-height: 60vh;
+    /* Ensure space above tab bar on mobile as well */
+    max-height: calc(100vh - (200px + var(--f7-toolbar-height) + env(safe-area-inset-bottom) + 20px));
     width: calc(100% - 20px);
 
     .modal-header {
@@ -1386,7 +1504,8 @@ body {
   }
 
   .template-details-modal {
-    max-height: calc(100vh - 200px);
+    /* Ensure space above tab bar on mobile as well */
+    max-height: calc(100vh - (200px + var(--f7-toolbar-height) + env(safe-area-inset-bottom) + 20px));
     width: calc(100% - 20px);
 
     .modal-header {
@@ -3121,7 +3240,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 
   .page-title {
     flex: 1;
@@ -3162,7 +3281,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 80px;
+  gap: 32px;
 }
 
 .voice-visualization-container {
@@ -3170,7 +3289,7 @@ body {
   align-items: center;
   justify-content: center;
   flex: 1;
-  min-height: 400px;
+  min-height: 260px;
 }
 
 .voice-circle {
@@ -3191,7 +3310,10 @@ body {
     right: 0;
     bottom: 0;
     border-radius: 50%;
-    background: linear-gradient(135deg, #00E5FF 0%, #D5FFD6 100%);
+    background: 
+      linear-gradient(135deg, #007AFF 0%, #5AC8FA 50%, #87CEEB 100%),
+      linear-gradient(135deg, #003366 0%, #0066CC 30%, #007AFF 60%, #5AC8FA 100%);
+    background-blend-mode: overlay;
     opacity: 0.84;
     transition: all 0.3s ease;
 
@@ -3240,7 +3362,7 @@ body {
     animation: voicePulse 2s ease-in-out infinite;
 
     .voice-gradient {
-      animation: gradientShift 3s ease-in-out infinite;
+      animation: blueEvolution 6s ease-in-out infinite;
     }
   }
 }
@@ -3254,15 +3376,26 @@ body {
   }
 }
 
-@keyframes gradientShift {
-  0%, 100% {
-    background: linear-gradient(135deg, #00E5FF 0%, #D5FFD6 100%);
+@keyframes blueEvolution {
+  0% {
+    filter: hue-rotate(0deg) saturate(1) brightness(1);
+    transform: scale(1) rotate(0deg);
   }
-  33% {
-    background: linear-gradient(135deg, #00E1FF 0%, #7F9FFF 50%, #D5FFD6 100%);
+  25% {
+    filter: hue-rotate(15deg) saturate(1.2) brightness(1.1);
+    transform: scale(1.02) rotate(90deg);
   }
-  66% {
-    background: linear-gradient(135deg, #7F9FFF 0%, #00E5FF 50%, #D5FFD6 100%);
+  50% {
+    filter: hue-rotate(30deg) saturate(1.4) brightness(1.2);
+    transform: scale(1.05) rotate(180deg);
+  }
+  75% {
+    filter: hue-rotate(15deg) saturate(1.2) brightness(1.1);
+    transform: scale(1.02) rotate(270deg);
+  }
+  100% {
+    filter: hue-rotate(0deg) saturate(1) brightness(1);
+    transform: scale(1) rotate(360deg);
   }
 }
 
@@ -3270,39 +3403,38 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: calc(var(--f7-toolbar-height) + env(safe-area-inset-bottom) + 40px);
+  padding-bottom: calc(var(--f7-toolbar-height) + env(safe-area-inset-bottom) + 120px);
 }
 
-.end-workout-btn {
-  background: transparent;
+.end-workout-btn { display: none; }
+
+.finish-workout-btn {
+  background: #007AFF;
+  color: #fff;
   border: none;
-  padding: 0;
-  margin: 0;
+  border-radius: 12px;
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  min-width: 220px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 6px 20px rgba(0, 122, 255, 0.25);
 
   &:hover {
-    transform: scale(1.05);
+    background: #0051D5;
+    transform: translateY(-1px);
   }
 
   &:active {
-    transform: scale(0.95);
-  }
-
-  svg {
-    width: 56px;
-    height: 56px;
-    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+    transform: translateY(0);
   }
 }
 
 /* Workout Session Mobile responsive adjustments */
 @media (max-width: 480px) {
   .workout-header {
-    padding: calc(env(safe-area-inset-top) + 16px) 20px 16px 20px;
+    padding: 0 10px 0px 10px;
 
     .workout-title {
       font-size: 32px;
@@ -3321,12 +3453,12 @@ body {
 
   .workout-session-content {
     padding: 0 20px;
-    gap: 60px;
+    gap: 28px;
     min-height: calc(100vh - 180px);
   }
 
   .voice-visualization-container {
-    min-height: 300px;
+    min-height: 220px;
   }
 
   .voice-circle {
@@ -3346,10 +3478,18 @@ body {
   }
 
   .end-workout-btn {
-    svg {
-      width: 50px;
-      height: 50px;
-    }
+    display: none;
+  }
+
+  .finish-workout-btn {
+    padding: 12px 18px;
+    font-size: 15px;
+    min-width: 200px;
+  }
+
+  /* Raise the Finish Workout button further on small screens */
+  .end-workout-container {
+    padding-bottom: calc(var(--f7-toolbar-height) + env(safe-area-inset-bottom) + 160px);
   }
 }
 

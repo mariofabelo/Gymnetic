@@ -3,9 +3,8 @@ import {
   Page,
   Navbar,
   List,
-  ListItem,
+  ListInput,
   Block,
-  Button,
   f7
 } from 'framework7-react';
 
@@ -31,38 +30,57 @@ const MeasurementsPage = () => {
       
       <Block className="activity-content">
         <div className="glass-card">
-          <List className="no-hairlines-md">
-            <ListItem
-              title="Height"
-              input
-              inputType="number"
-              inputPlaceholder="Enter height (cm)"
+          <List className="no-hairlines-md measurements-list">
+            <ListInput
+              label="Height"
+              type="number"
+              placeholder="Enter height (cm)"
               value={measurements.height}
-              onChange={(e) => setMeasurements({...measurements, height: e.target.value})}
+              onInput={(e) => setMeasurements({ ...measurements, height: e.target.value })}
+              inputmode="decimal"
+              min="0"
+              max="300"
+              step="0.1"
+              clearButton
             />
-            <ListItem
-              title="Weight"
-              input
-              inputType="number"
-              inputPlaceholder="Enter weight (kg)"
+            <ListInput
+              label="Weight"
+              type="number"
+              placeholder="Enter weight (kg)"
               value={measurements.weight}
-              onChange={(e) => setMeasurements({...measurements, weight: e.target.value})}
+              onInput={(e) => setMeasurements({ ...measurements, weight: e.target.value })}
+              inputmode="decimal"
+              min="0"
+              max="500"
+              step="0.1"
+              clearButton
             />
-            <ListItem
-              title="Age"
-              input
-              inputType="number"
-              inputPlaceholder="Enter age"
+            <ListInput
+              label="Age"
+              type="number"
+              placeholder="Enter age"
               value={measurements.age}
-              onChange={(e) => setMeasurements({...measurements, age: e.target.value})}
+              onInput={(e) => setMeasurements({ ...measurements, age: e.target.value })}
+              inputmode="numeric"
+              min="0"
+              max="120"
+              step="1"
+              clearButton
             />
           </List>
         </div>
 
-        <div className="glass-card" style={{marginTop: '20px'}}>
-          <Button fill large onClick={handleSave}>
-            Save Changes
-          </Button>
+        <div
+          className="glass-card selected-glass-card clickable-card compact"
+          style={{ marginTop: '20px' }}
+          role="button"
+          tabIndex={0}
+          onClick={handleSave}
+          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') handleSave(); }}
+        >
+          <div className="card-content centered">
+            <h3>Save Changes</h3>
+          </div>
         </div>
       </Block>
     </Page>

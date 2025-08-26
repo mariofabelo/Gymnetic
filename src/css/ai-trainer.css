@@ -1,3 +1,15 @@
+/* AI Trainer Page Safe Area Handling */
+.page[data-name="ai-trainer"] .activity-content {
+  padding-top: calc(env(safe-area-inset-top) + 24px) !important;
+}
+
+/* Override connect-title padding for AI trainer to match Connect page exactly */
+.page[data-name="ai-trainer"] .connect-title {
+  margin: 0 0 24px 0 !important;
+  padding-left: 8px !important;
+  padding-top: 0 !important;
+}
+
 .ai-trainer-options {
   display: flex;
   flex-direction: column;

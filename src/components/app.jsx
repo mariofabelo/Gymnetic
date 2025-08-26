@@ -103,9 +103,52 @@ const MyApp = () => {
         <Views tabs>
           {/* Tabbar for switching views-tabs */}
           <Toolbar tabbar icons bottom>
-            <Link tabLink="#view-home" tabLinkActive iconIos="f7:house_fill" iconMd="material:home" text="Home" />
-            <Link tabLink="#view-start" iconIos="f7:plus_square" iconMd="material:add_box" text="Start" />
-            <Link tabLink="#view-settings" iconIos="f7:line_horizontal_3" iconMd="material:menu" text="More" />
+            <Link 
+              tabLink="#view-home" 
+              tabLinkActive 
+              iconIos="f7:house_fill" 
+              iconMd="material:home" 
+              text="Home"
+              onClick={() => {
+                const homeView = f7.views.get('#view-home');
+                if (homeView) {
+                  homeView.router.navigate('/', {
+                    transition: 'f7-fade',
+                    clearPreviousHistory: true,
+                  });
+                }
+              }}
+            />
+            <Link 
+              tabLink="#view-start" 
+              iconIos="f7:plus_square" 
+              iconMd="material:add_box" 
+              text="Start"
+              onClick={() => {
+                const startView = f7.views.get('#view-start');
+                if (startView) {
+                  startView.router.navigate('/start/', {
+                    transition: 'f7-fade',
+                    clearPreviousHistory: true,
+                  });
+                }
+              }}
+            />
+            <Link 
+              tabLink="#view-settings" 
+              iconIos="f7:line_horizontal_3" 
+              iconMd="material:menu" 
+              text="More"
+              onClick={() => {
+                const settingsView = f7.views.get('#view-settings');
+                if (settingsView) {
+                  settingsView.router.navigate('/more/', {
+                    transition: 'f7-fade',
+                    clearPreviousHistory: true,
+                  });
+                }
+              }}
+            />
           </Toolbar>
 
           {/* Your main view/tab, should have "view-main" class. It also has "tabActive" prop */}

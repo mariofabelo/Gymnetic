@@ -19,8 +19,8 @@ const WorkoutSessionPage = () => {
   };
 
   const handleSettings = () => {
-    // TODO: Navigate to workout settings or show settings modal
-    console.log('Opening workout settings...');
+    // Navigate to AI Trainer page
+    f7.views.current.router.navigate('/ai-trainer/');
   };
 
   return (
@@ -33,9 +33,7 @@ const WorkoutSessionPage = () => {
             <h1>Workout</h1>
           </div>
           <Button className="settings-btn" onClick={handleSettings}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M9.25 22L8.85 18.8C8.63333 18.7167 8.42917 18.6208 8.2375 18.5125C8.04583 18.4042 7.85833 18.2833 7.675 18.15L4.7 19.375L1.95 14.625L4.525 12.675C4.50833 12.5583 4.5 12.4458 4.5 12.3375V11.6625C4.5 11.5542 4.50833 11.4417 4.525 11.325L1.95 9.375L4.7 4.625L7.675 5.85C7.85833 5.71667 8.05 5.59583 8.25 5.4875C8.45 5.37917 8.65 5.28333 8.85 5.2L9.25 2H14.75L15.15 5.2C15.3667 5.28333 15.5708 5.37917 15.7625 5.4875C15.9542 5.59583 16.1417 5.71667 16.325 5.85L19.3 4.625L22.05 9.375L19.475 11.325C19.4917 11.4417 19.5 11.5542 19.5 11.6625V12.3375C19.5 12.4458 19.4917 12.5583 19.475 12.675L22.05 14.625L19.3 19.375L16.325 18.15C16.1417 18.2833 15.9542 18.4042 15.7625 18.5125C15.5708 18.6208 15.3667 18.7167 15.15 18.8L14.75 22H9.25ZM12 15.5C13.25 15.5 14.3125 15.0625 15.1875 14.1875C16.0625 13.3125 16.5 12.25 16.5 11C16.5 9.75 16.0625 8.6875 15.1875 7.8125C14.3125 6.9375 13.25 6.5 12 6.5C10.75 6.5 9.6875 6.9375 8.8125 7.8125C7.9375 8.6875 7.5 9.75 7.5 11C7.5 12.25 7.9375 13.3125 8.8125 14.1875C9.6875 15.0625 10.75 15.5 12 15.5Z" fill="currentColor"/>
-            </svg>
+            <i className="f7-icons" style={{fontSize: '24px'}}>gear</i>
           </Button>
         </div>
 
@@ -55,13 +53,10 @@ const WorkoutSessionPage = () => {
             </div>
           </div>
 
-          {/* End Workout Button */}
+          {/* Finish Workout Button */}
           <div className="end-workout-container">
-            <Button className="end-workout-btn" onClick={handleEndWorkout}>
-              <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="28" cy="28" r="28" fill="#FF3B30"/>
-                <path d="M20 28H36M36 28L30 22M36 28L30 34" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+            <Button className="finish-workout-btn" onClick={handleEndWorkout}>
+              Finish Workout
             </Button>
           </div>
         </div>
